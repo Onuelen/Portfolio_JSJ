@@ -1,7 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+<<<<<<< Updated upstream
 import createGlobalStyle from 'styled-components'
 import reset from 'styled-reset';
+=======
+import { Router, RouterProvider } from 'react-router-dom';
+import Header from './components/Header';
+>>>>>>> Stashed changes
 
 const GlobalStyle = styled.createGlobalStyle`
   ${reset}
@@ -20,11 +25,28 @@ const GlobalStyle = styled.createGlobalStyle`
   }
 `;
 
+<<<<<<< Updated upstream
 const App = () => {
   return (
     <div>
       APP111
     </div>
+=======
+const Container = styled.div`
+  height:500vh;
+`
+
+
+const App = () => {
+  return (
+    <>
+      <GlobalStyles />
+      <Header />
+      <Container>
+        123123
+      </Container>
+    </>
+>>>>>>> Stashed changes
   )
 }
 
