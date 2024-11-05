@@ -1,12 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-<<<<<<< Updated upstream
 import createGlobalStyle from 'styled-components'
 import reset from 'styled-reset';
-=======
 import { Router, RouterProvider } from 'react-router-dom';
 import Header from './components/Header';
->>>>>>> Stashed changes
 
 const GlobalStyle = styled.createGlobalStyle`
   ${reset}
