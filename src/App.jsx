@@ -1,11 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
-import createGlobalStyle from 'styled-components'
-import reset from 'styled-reset';
 import { Router, RouterProvider } from 'react-router-dom';
+import { styled, createGlobalStyle } from 'styled-components'
+import reset from 'styled-reset';
 import Header from './components/Header';
+import Home from './pages/Home';
 
-const GlobalStyle = styled.createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   ${reset}
   
   *{
@@ -22,14 +22,8 @@ const GlobalStyle = styled.createGlobalStyle`
   }
 `;
 
-<<<<<<< Updated upstream
-const App = () => {
-  return (
-    <div>
-      APP111
-    </div>
-=======
 const Container = styled.div`
+margin-top:60px;
   height:500vh;
 `
 
@@ -37,13 +31,12 @@ const Container = styled.div`
 const App = () => {
   return (
     <>
-      <GlobalStyles />
+      <GlobalStyle />
       <Header />
       <Container>
-        123123
+        <Home />
       </Container>
     </>
->>>>>>> Stashed changes
   )
 }
 
