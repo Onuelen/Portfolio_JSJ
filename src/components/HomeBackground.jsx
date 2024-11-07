@@ -8,12 +8,11 @@ const ReactDiv = styled.div`
   position: absolute;
   top: 21.296vh;
   left: 20%;
+  transform:rotate(-20deg);
   background-color: #637ED8;
   color:#fff;
   padding: 10px 40px;
   line-height:1;
-  display:flex;
-  justify-content: center;
   font-size: 40px;
   border-radius: 5px;
   font-weight: bold;
@@ -21,13 +20,18 @@ const ReactDiv = styled.div`
 
 const HTMLDiv = styled.div`
   position: absolute;
-  top: 30%;
-  left: 50%;
-  background-color: #e34f26;
-  color: white;
-  padding: 10px;
-  font-size: 18px;
-  border-radius: 8px;
+  top: 53%;
+  left: 24%;
+  width:174px;
+  height:66px;
+  transform:rotate(20deg);
+  background-color: #727272;
+  color: #fff;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34px;
+  border-radius: 50px;
 `;
 
 const CSSDiv = styled.div`
@@ -64,9 +68,13 @@ const PhotoshopDiv = styled.div`
 `;
 
 const JsDiv = styled.div``
+
 const AiDiv = styled.div``
+
 const NodeDiv = styled.div``
+
 const GitDiv = styled.div``
+
 const FigmaDiv = styled.div``
 
 

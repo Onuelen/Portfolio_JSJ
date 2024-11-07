@@ -4,6 +4,8 @@ import { styled, createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset';
 import Header from './components/Header';
 import Home from './pages/Home';
+import Intro from './components/Intro';
+import Test from './components/Test';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -20,6 +22,9 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color:inherit;
   }
+  body {
+    font-family: "Noto Sans KR", sans-serif;
+  }
 `;
 
 const Container = styled.div`
@@ -32,6 +37,7 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
+      <Intro />
       <Header />
       <Container>
         <Home />

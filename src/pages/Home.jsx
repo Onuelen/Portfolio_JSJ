@@ -10,7 +10,6 @@ position: relative;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  border: 1px solid #f0f;
 `
 
 const Home = () => {

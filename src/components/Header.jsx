@@ -7,7 +7,7 @@ const Container = styled.div`
   position:fixed;
   top:0;
   left:0;
-  z-index:9;
+  z-index:5;
 
 `
 const Glass = styled.div`
@@ -19,8 +19,8 @@ const Glass = styled.div`
   -webkit-backdrop-filter: blur( 2.5px );
 `
 const MenuContainer = styled.div`
-width:100%;
-height:100%;
+  width:100%;
+  height:100%;
   display:flex;
   justify-content:center;
   align-items: center;
@@ -29,9 +29,12 @@ height:100%;
 `
 const Title = styled.div`
   font-size:18px;
+  font-weight:bold;
+  margin-top:3px;
 `;
 const Menu = styled.div`
   display:flex;
+  margin-top:3px;
   font-size:18px;
   gap:20px;
 `;
