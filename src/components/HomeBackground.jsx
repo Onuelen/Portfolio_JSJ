@@ -7,7 +7,7 @@ const Container = styled.div`
 const ReactDiv = styled.div`
   position: absolute;
   top: 21.296vh;
-  left: 20%;
+  left: 18vw;
   transform:rotate(-20deg);
   background-color: #637ED8;
   color:#fff;
@@ -20,7 +20,7 @@ const ReactDiv = styled.div`
 
 const HTMLDiv = styled.div`
   position: absolute;
-  top: 53%;
+  top: 45vh;
   left: 24%;
   width:174px;
   height:66px;
@@ -36,13 +36,19 @@ const HTMLDiv = styled.div`
 
 const CSSDiv = styled.div`
   position: absolute;
-  top: 50%;
-  left: 70%;
+  top: 60vh;
+  left: 29.5vw;
   background-color: #2965f1;
   color: white;
+  width:208px;
+  height:70px;
   padding: 10px;
-  font-size: 18px;
-  border-radius: 8px;
+  rotate:-10deg;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  border-radius: 3px;
 `;
 
 const NextDiv = styled.div`

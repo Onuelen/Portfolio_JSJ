@@ -89,7 +89,7 @@ const Intro = () => {
 
   return (
     <Container className="Container">
-      <IntroTitle className="IntroTitle">This Is Title Section</IntroTitle>
+      <IntroTitle className="IntroTitle">HELLO</IntroTitle>
       <IntroBackLeft className='IntroBackground' />
       <IntroBackRight className='IntroBackground' />
     </Container>

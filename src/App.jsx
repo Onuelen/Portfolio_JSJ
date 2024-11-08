@@ -37,7 +37,7 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      <Intro />
+      {/* <Intro /> */}
       <Header />
       <Container>
         <Home />
