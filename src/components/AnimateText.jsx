@@ -4,11 +4,14 @@ import styled from 'styled-components'
 const Container = styled.div`
 display:flex;
 flex-direction:column;
+gap:40px;
 `
 
 const TextLine = styled.div`
 position:relative;
 display:flex;
+justify-content: center;
+align-items: center;
 `
 const ImgSource = styled.img`
 width:468px;
