@@ -14,7 +14,7 @@ const Glass = styled.div`
   width:100%;
   height:60px;
   background: rgba( 0, 0, 0, 0.8 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  box-shadow: 0 20px 32px 10px rgba( 30, 30, 30, 0.35 );
   backdrop-filter: blur( 2.5px );
   -webkit-backdrop-filter: blur( 2.5px );
 `
