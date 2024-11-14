@@ -10,31 +10,38 @@ import AnimateText from './components/AnimateText';
 import Resume from './pages/Resume';
 import Works from './pages/Works';
 import Project from './pages/Project';
+import BgImage from './img/bg.png';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
   
-  *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   }
-  ul,li{
-    list-style:none;
-  }
+ul, li{
+  list-style: none;
+}
   a{
-    text-decoration: none;
-    color:inherit;
-  }
+  text-decoration: none;
+  color: inherit;
+}
   body {
     font-family: "Noto Sans KR", sans-serif;
-    background:#000;
+    background:
+      rgba(0, 0, 0, 0.5) /* 반투명 검정색 레이어 */
+      url(${BgImage}) 
+      no-repeat center center;
+    background-size: contain;
+    background-repeat: repeat;
+    background-blend-mode: multiply; /* 이미지와 색상의 혼합 모드 */
   }
 `;
 
 const Container = styled.div`
-margin-top:60px;
-  height:500vh;
+margin-top: 60px;
+height: 500vh;
 `
 
 
