@@ -38,14 +38,14 @@ const HTMLDiv = styled.div`
 
 const CSSDiv = styled.div`
   position: absolute;
-  top: 45vh;
-  left: 24vw;
+  top: 49vh;
+  left: 25vw;
   background-color: #637ED8;
   color: white;
   width:208px;
   height:70px;
   padding-bottom: 6px;
-  rotate:-10deg;
+  rotate:-14deg;
   display:flex;
   justify-content: center;
   align-items: center;
