@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import gsap from 'gsap';
+import bgvideo from '../img/bgvideo4.mp4'
 
 const Container = styled.div`
   display: flex;
@@ -12,6 +13,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom:10vh;
 `;
 
 const TextLine = styled.div`
@@ -23,11 +25,13 @@ const TextLine = styled.div`
   white-space: nowrap; /* 텍스트가 한 줄에 유지되도록 설정 */
 `;
 
-const ImgSource = styled.img`
+const ImgSource = styled.video`
   width: 468px;
   height: 100px;
   margin: 0 60px;
   margin-top: 18px;
+  object-fit: cover;
+  border-radius:50px;
 `;
 
 const Text = styled.p`
@@ -49,8 +53,8 @@ const Imoji = styled.p`
 const GlassMorphism = styled.div`
   position: absolute;
   top: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.1));
-  box-shadow: 0 6px 15px 0 rgba(131, 174, 255, 0.2);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));
+  box-shadow: 0 6px 15px 0 rgba(223, 234, 255, 0.1);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border-radius: 40px;
@@ -71,7 +75,7 @@ const AnimateText = () => {
   useEffect(() => {
     gsap.to('.green', {
       rotation: 360,
-      duration: 3,
+      duration: 4,
       repeat: -1,
       repeatDelay: 0,
       ease: 'power1.inOut',
@@ -91,15 +95,15 @@ const AnimateText = () => {
 
     // 텍스트 흐르는 애니메이션
     gsap.to('.rightMove', {
-      xPercent: -50, // 텍스트가 왼쪽으로 흐름
-      duration: 10,
+      xPercent: -100, // 텍스트가 왼쪽으로 흐름
+      duration: 18,
       repeat: -1,
       ease: 'linear',
     });
 
     gsap.to('.leftMove', {
       xPercent: 100, // 텍스트가 오른쪽으로 흐름
-      duration: 16,
+      duration: 20,
       repeat: -1,
       ease: 'linear',
     });
@@ -108,7 +112,7 @@ const AnimateText = () => {
   return (
     <Container>
       <TextLine className='rightMove'>
-        <ImgSource src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHZqj-XReJ2R76nji51cZl4ETk6-eHRmZBRw&s' alt='Dummy' />
+        <ImgSource src={bgvideo} autoPlay loop muted />
         <Text>developer</Text>
         <Imoji className='green'>🎨</Imoji>
         <Text>publisher</Text>

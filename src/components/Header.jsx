@@ -31,12 +31,22 @@ const Title = styled.div`
   font-size:18px;
   font-weight:bold;
   margin-top:3px;
+  cursor: pointer;
 `;
 const Menu = styled.div`
   display:flex;
   margin-top:3px;
   font-size:18px;
-  gap:20px;
+  & > p {
+    padding:8px 20px;
+    line-height:1.4;
+    cursor: pointer;
+  &:hover {
+    background-color:#444444;
+    padding:8px 20px;
+    border-radius:20px;
+    }
+  }
 `;
 const Header = () => {
   return (

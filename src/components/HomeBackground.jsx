@@ -33,7 +33,8 @@ const HTMLDiv = styled.div`
   align-items: center;
   font-size: 34px;
   border-radius: 50px;
-    padding-bottom: 5px;
+  padding-bottom: 5px;
+
 `;
 
 const CSSDiv = styled.div`
@@ -43,14 +44,14 @@ const CSSDiv = styled.div`
   background-color: #637ED8;
   color: white;
   width:208px;
-  height:70px;
+  height:74px;
   padding-bottom: 6px;
   rotate:-14deg;
   display:flex;
   justify-content: center;
   align-items: center;
   font-size: 50px;
-  border-radius: 3px;
+  border-radius: 12px;
 `;
 
 const NextDiv = styled.div`
@@ -62,9 +63,9 @@ const NextDiv = styled.div`
   padding: 16px 40px;
   rotate:23deg;
   font-size: 40px;
-  border-radius: 8px;
-  box-shadow: -10px 8px 14px rgba(0,0,0,0.3);
+  border-radius: 16px;
   padding-bottom: 20px;
+  box-shadow: -5px 8px 14px rgba(0,0,0,0.7);
 `;
 
 const PhotoshopDiv = styled.div`
@@ -86,8 +87,8 @@ const PhotoshopDiv = styled.div`
 
 const JsDiv = styled.div`
   position: absolute;
-  top: 287px;
-  right: 21vw;
+  top: 240px;
+  right: 24vw;
   width:174px;
   height:66px;
   background-color:#808080;
@@ -102,9 +103,9 @@ const JsDiv = styled.div`
 const AiDiv = styled.div`
   position: absolute;
   top: 47vh;
-  right: 18vw;
-  width:158px;
-  height:58px;
+  right: 14vw;
+  width:180px;
+  height:80px;
   background-color:#637ED8;
   color: white;
   display:flex;
@@ -119,7 +120,7 @@ const NodeDiv = styled.div`
   top: 64vh;
   right: 18vw;
   width:240px;
-  height:50px;
+  height:64px;
   background-color:#808080;
   color: white;
   display:flex;
@@ -127,14 +128,16 @@ const NodeDiv = styled.div`
   align-items: center;
   font-size: 24px;
   border-radius: 50px;
-  rotate:-28deg;`
+  rotate:-28deg;
+  box-shadow: -3px 6px 18px rgba(0,0,0,0.7);
+  `
 
 const GitDiv = styled.div`
   position: absolute;
-  top: 67vh;
+  top: 68vh;
   right: 26.5vw;
-  width:180px;
-  height:60px;
+  width:190px;
+  height:68px;
   background-color:#637ED8;
   color: white;
   display:flex;
@@ -149,8 +152,8 @@ const GitDiv = styled.div`
 const FigmaDiv = styled.div`
   position: absolute;
   top: 70vh;
-  right: 35vw;
-  width:240px;
+  right: 37vw;
+  width:210px;
   height:50px;
   background-color:#383838;
   color: white;
