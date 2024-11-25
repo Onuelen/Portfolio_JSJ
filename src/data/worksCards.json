@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "UIUX Project",
+    "subTitle": "UIUX, HTML",
+    "thumb": "../img/1.png",
+    "desc": "어쩌고 저쩌고",
+    "git": "https://github.com/example",
+    "goto": "https://example.com",
+    "category": "HTML"
+  },
+  {
+    "id": 2,
+    "title": "React Project",
+    "subTitle": "React, JavaScript",
+    "thumb": "../img/2.png",
+    "desc": "리액트 관련 프로젝트 설명",
+    "git": "https://github.com/example-react",
+    "goto": "https://example-react.com",
+    "category": "REACT"
+  },
+  {
+    "id": 3,
+    "title": "Node.js Project",
+    "subTitle": "Node, Backend",
+    "thumb": "../img/3.png",
+    "desc": "Node.js로 만든 프로젝트",
+    "git": "https://github.com/example-node",
+    "goto": "https://example-node.com",
+    "category": "NODE"
+  }
+]
