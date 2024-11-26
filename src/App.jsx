@@ -1,6 +1,8 @@
 import React from 'react'
 import { Router, RouterProvider } from 'react-router-dom';
 import { styled, createGlobalStyle } from 'styled-components'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import reset from 'styled-reset';
 import Header from './components/Header';
 import Home from './pages/Home';
@@ -11,6 +13,7 @@ import Resume from './pages/Resume';
 import Works from './pages/Works';
 import Project from './pages/Project';
 import BgImage from './img/bg.png';
+
 
 const GlobalStyle = createGlobalStyle`
   ${reset}

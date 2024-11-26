@@ -1,98 +1,142 @@
-import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
-import WorkCard from '../components/WorkCard'
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import WorkCard from "../components/WorkCard";
 import projectsData from "../data/worksCards.json";
+import Slider from "react-slick";
 
 const Container = styled.div`
-width:100%;
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content: center;
-align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+`;
 
-.cards{
-  display:flex;
-  flex-direction:column;
-  justify-content: center;
-  padding:20px;
-  border:1px solid #f0f;
-}
-`
 const TopContain = styled.div`
-display:flex;
-    h1{
-    color:#fff;
-    font-size:48px;
-    font-weight:bold;
-    margin-bottom:34px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
   }
-  .filterButtons{
-    display:flex;
-    gap:10px;
+
+  .filterButtons {
+    display: flex;
+    gap: 10px;
   }
-`
+`;
+
 const FilterButton = styled.button`
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background: ${(props) => (props.active ? "#fff700" : "#444")};
+  color: ${(props) => (props.active ? "#000" : "#fff")};
   cursor: pointer;
-  background: ${(props) => (props.active ? "#007bff" : "#ddd")};
-  color: ${(props) => (props.active ? "white" : "black")};
 
   &:hover {
-    background: #0056b3;
-    color: white;
+    background: #fff700;
+    color: #000;
   }
 `;
 
 const ContainCards = styled.div`
-  display:grid;
-  grid-template-columns: repeat(3, 3fr);
-  gap:26px 80px;
-`
+  width: 100%;
+  margin-top: 20px;
+`;
+
+const SliderContainer = styled(Slider)`
+  .slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slick-list {
+    padding: 0 10px; /* 슬라이더 좌우 여백 */
+  }
+`;
+
+const SlideWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2열 */
+  grid-template-rows: repeat(3, auto); /* 3행 */
+  gap: 20px; /* 카드 간격 */
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+`;
 
 const Works = () => {
-
   const [filter, setFilter] = useState("All");
   const [projects, setProjects] = useState([]);
 
-  // 데이터 로드 (JSON 파일에서 불러오기)
   useEffect(() => {
     setProjects(projectsData);
   }, []);
 
-  // 필터링된 프로젝트
-  const filteredProjects =
-    filter === "All"
-      ? projects
-      : projects.filter((project) => project.category === filter);
+  const filteredProjects = filter === "All"
+    ? projects
+    : projects.filter((project) => project.category.toLowerCase() === filter.toLowerCase());
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1, // 그룹 단위로 슬라이더 이동
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 768, // 모바일
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1024, // 태블릿
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
 
   return (
     <Container>
-      <div className='cards'>
-        <TopContain>
-          <h1>WORKS</h1>
-          <div className="filterButtons">
-            {["All", "HTML", "REACT", "NODE"].map((btn) => (
-              <FilterButton
-                key={btn}
-                active={filter === btn}
-                onClick={() => setFilter(btn)}
-              >
-                {btn}
-              </FilterButton>
-            ))}
-          </div>
-        </TopContain>
-        <ContainCards>
-          {filteredProjects.map((project) => (
-            <WorkCard key={project.id} data={project} />
+      <TopContain>
+        <h1>WORKS</h1>
+        <div className="filterButtons">
+          {["All", "HTML", "REACT", "NODE"].map((btn) => (
+            <FilterButton
+              key={btn}
+              active={filter === btn}
+              onClick={() => setFilter(btn)}
+            >
+              {btn}
+            </FilterButton>
           ))}
-        </ContainCards>
-      </div>
+        </div>
+      </TopContain>
+      <ContainCards>
+        <SliderContainer {...sliderSettings}>
+          {filteredProjects.reduce((result, item, index) => {
+            const chunkIndex = Math.floor(index / 6); // 6개씩 그룹화
+            if (!result[chunkIndex]) result[chunkIndex] = [];
+            result[chunkIndex].push(item);
+            return result;
+          }, []).map((group, index) => (
+            <SlideWrapper key={index}>
+              {group.map((project) => (
+                <WorkCard key={project.id} data={project} />
+              ))}
+            </SlideWrapper>
+          ))}
+        </SliderContainer>
+      </ContainCards>
     </Container>
-  )
-}
+  );
+};
 
-export default Works
+export default Works;
