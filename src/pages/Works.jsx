@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import WorkCard from '../components/WorkCard'
-import projectsData from "../data/projects.json";
+import projectsData from "../data/worksCards.json";
 
 const Container = styled.div`
 width:100%;
