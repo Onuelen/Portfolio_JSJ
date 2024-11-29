@@ -5,6 +5,9 @@ const Container = styled.div`
 display:flex;
 flex-direction:column;
 margin-bottom:20px;
+justify-content:center;
+justify-items: center;
+align-items: start;
 `
 
 const Card = styled.div`

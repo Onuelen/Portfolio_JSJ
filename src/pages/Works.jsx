@@ -7,19 +7,22 @@ import { RiArrowLeftWideLine, RiArrowRightWideLine } from "react-icons/ri";
 
 const Container = styled.div`
   width: 100%;
+  height:100vh;
   margin: 0 auto;
-  padding: 60px 160px;
+  padding: 140px 160px;
+  box-sizing: border-box;
 `;
 
 const TopContain = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 35px;
+  margin-bottom: 32px;
   h1 {
     color: #fff;
     font-size: 48px;
     font-weight: bold;
+    line-height:1.2;
   }
 
   .filterButtons {
@@ -29,8 +32,12 @@ const TopContain = styled.div`
 `;
 
 const FilterButton = styled.button`
+  width:160px;
   padding: 10px 15px;
-  border-radius: 5px;
+  font-size:24px;
+  font-weight:bold;
+  border-radius: 18px;
+  border:none;
   background: ${(props) => (props.active ? "#fff700" : "#444")};
   color: ${(props) => (props.active ? "#000" : "#fff")};
   cursor: pointer;
@@ -43,23 +50,18 @@ const FilterButton = styled.button`
 
 const ContainCards = styled.div`
   width:100%;
+  display:flex;
   margin-top: 20px;
-  border:1px solid #f0f;
-  background:#00f;
+  border:1px solid #f00;
 `;
 
 const SliderContainer = styled(Slider)`
 position:relative;
-  .slick-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border:1px solid #f0f;
-    max-width:424px;
-  }
-
-  .slick-list {
-    padding: 0 0; /* 슬라이더 좌우 여백 */
+width:100%;
+background:aqua;
+border:10px solid #00f;
+.slick-slide {
+  border:1px solid #f0f;
   }
 
   /* 도트 스타일 */
@@ -84,13 +86,6 @@ position:relative;
       background-color: #fff; /* 활성화 도트 색상 */
     }
   }
-`;
-
-const SlideWrapper = styled.div`
-  display: grid;
-  gap: 20px;
-  width: fit-content;
-  box-sizing: border-box;
 `;
 
 // Custom Left Arrow
@@ -142,33 +137,33 @@ const Works = () => {
     : projects.filter((project) => project.category.toLowerCase() === filter.toLowerCase());
 
   const sliderSettings = {
+    prevArrow: <LeftArrow />,
+    nextArrow: <RightArrow />,
     dots: true,
     infinite: true,
-    speed: 550,
+    // autoplay: true,
+    speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3500,
-    cssEase: "ease-in",
-    pauseOnHover: true,
-    prevArrow: <LeftArrow />, // Custom Left Arrow
-    nextArrow: <RightArrow />, // Custom Right Arrow
+    slidesToScroll: 3,
+    rows: 1,
+    autoplaySpeed: 3000,
     responsive: [
       {
-        breakpoint: 1080,
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        }
+      },
+      {
+        breakpoint: 800,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-        },
+          initialSlide: 1
+        }
       },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+    ]
   };
 
   return (
@@ -176,7 +171,7 @@ const Works = () => {
       <TopContain>
         <h1>WORKS</h1>
         <div className="filterButtons">
-          {["All", "HTML", "REACT", "NODE"].map((btn) => (
+          {["All 10", "HTML 3", "REACT 3", "NODE"].map((btn) => (
             <FilterButton
               key={btn}
               active={filter === btn}
@@ -189,17 +184,8 @@ const Works = () => {
       </TopContain>
       <ContainCards>
         <SliderContainer {...sliderSettings}>
-          {filteredProjects.reduce((result, item, index) => {
-            const chunkIndex = Math.floor(index / 2);
-            if (!result[chunkIndex]) result[chunkIndex] = [];
-            result[chunkIndex].push(item);
-            return result;
-          }, []).map((group, index) => (
-            <SlideWrapper key={index}>
-              {group.map((project) => (
-                <WorkCard key={project.id} data={project} />
-              ))}
-            </SlideWrapper>
+          {filteredProjects.map((project) => (
+            <WorkCard key={project.id} data={project} />
           ))}
         </SliderContainer>
       </ContainCards>
