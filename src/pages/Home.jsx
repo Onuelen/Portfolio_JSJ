@@ -106,7 +106,7 @@ const Home = () => {
         <TextContainer>
           <Name>JI SEONG JUN</Name>
           <SubTitle><Highlight>I'M</Highlight> FrontEnd Developer</SubTitle>
-          <p>안녕하세요! 저는 인터랙티브한 애니메이션으로 매력적인 웹을 설계하는 프론트엔드 개발자가 되고싶은 "몇 글자나 더 써야할지 실험중 입니다아아아아아 자차카타파하 아에이오 우어 아야 어여 오요우유 으이 끼끼꾸꾸 까까." 지성준입니다. </p>
+          <p>안녕하세요! 저는 인터랙티브한 애니메이션으로 매력적인 웹을 설계하는 프론트엔드 개발자가 되고싶은 지성준입니다. 새로운 기술과 창의적인 아이디어로 사용자에게 신선한 경험을 주고싶습니다. 끊임없이 배우며 더 나은 페이지를 만들어가겠습니다." </p>
           <Highlight><p>I USED HTML, CSS, Javascript ES6+, React.js, Next.js, Node.js, Figma, TypeScript</p>  </Highlight>
         </TextContainer>
       </GlassBoard>

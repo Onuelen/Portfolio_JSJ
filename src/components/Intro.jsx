@@ -14,18 +14,20 @@ const Container = styled.section`
 `
 
 const IntroTitle = styled.div`
-  color: white;
+  color: #637ED8;
   max-width: 45%;
   text-align: center;
   mix-blend-mode: difference;
   z-index: 2;
   transform: translateY(40px);
+  font-size:64px;
+  font-weight:bold;
 `
 
 const IntroBackground = styled.div`
   position: absolute;
   top: 0;
-  background-color: black;
+  background-color: #272727;
   width: 50%;
   height: 100%;
   transform: scaleX(0);

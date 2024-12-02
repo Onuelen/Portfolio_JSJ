@@ -11,9 +11,13 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 140px 160px;
   box-sizing: border-box;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
 `;
 
 const TopContain = styled.div`
+width:100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,18 +54,19 @@ const FilterButton = styled.button`
 
 const ContainCards = styled.div`
   width:100%;
+  height:100%;
   display:flex;
   margin-top: 20px;
-  border:1px solid #f00;
 `;
 
 const SliderContainer = styled(Slider)`
 position:relative;
 width:100%;
 background:aqua;
-border:10px solid #00f;
 .slick-slide {
-  border:1px solid #f0f;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
   }
 
   /* 도트 스타일 */
@@ -75,7 +80,6 @@ border:10px solid #00f;
         height: 12px;
         border-radius: 50%;
         background-color: #474747;
-
         &:before {
           display: none; /* 기본 점 스타일 제거 */
         }
@@ -142,11 +146,13 @@ const Works = () => {
     dots: true,
     infinite: true,
     // autoplay: true,
-    speed: 500,
+    speed: 800,
     slidesToShow: 3,
     slidesToScroll: 3,
     rows: 1,
     autoplaySpeed: 3000,
+    centerMode: true,
+    centerPadding: "0px",
     responsive: [
       {
         breakpoint: 1400,

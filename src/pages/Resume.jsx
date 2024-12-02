@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ResumeProfile from '../img/resumeprofile.jpg'
+import skillData from "../data/skills.json"; // JSON 파일 import
 
 const Container = styled.div`
-border:1px solid #f0f;
 width:100%;
 height:calc(100vh - 60px);
 display:flex;
-padding:60px 160px;
+padding:60px 140px;
 gap:60px;
 `
 const MainTitle = styled.div`
@@ -22,7 +22,6 @@ display:flex;
 flex-direction:column;
 align-items: center;
 color:#fff;
-font-size:36px;
 gap:40px;
 `
 const ProfileImg = styled.img`
@@ -35,27 +34,55 @@ object-fit:cover;
 const TextContainer = styled.div`
   display:flex;
   flex-direction:column;
+  justify-content: center;
+  align-items: center;
   gap:20px;
+`
+const WrapText = styled.div`
+  width:100%;
+  display:flex;
+  justify-content:left;
+  gap:10px;
+  font-size:22px;
+  font-weight:bold;
+  & > p {
+    color:#c7c7c7;
+    font-weight:normal;
+    word-break:initial;
+  }
+`
+const WrapText2 = styled.div`
+  width:100%;
+  display:flex;
+  justify-content:left;
+  align-items: center;
+  gap:20px;
+  font-size:22px;
+  & > p {
+    color:#c7c7c7;
+    font-weight:normal;
+    word-break:initial;
+      font-size:18px;
+  }
 `
 
 const DetailInfo = styled.div`
 display:flex;
 gap:40px;
+flex:2;
 `
 
 const LeftContainer = styled.div`
 width:100%;
 display:flex;
 flex-direction:column;
-flex:1;
 gap:40px;
+word-break:initial;
 `
 
 const RightContainer = styled.div`
-width:100%;
 display:flex;
 flex-direction:column;
-flex:1;
 gap:40px;
 `
 
@@ -67,12 +94,17 @@ const SectionContainer = styled.div`
   flex-direction:column;
   gap:20px;
   flex:1;
+  & > p {
+    color:#c5c5c5;
+    font-size:18px;
+  }
 `
 
 const SubTitleBox = styled.h4`
   width:fit-content;
-  font-size:24px;
-  background-color:#15ff00;
+  font-size:32px;
+  font-weight:bold;
+  background-color:#35ff22;
   border-radius:50px;
   padding:10px 20px;
   line-height:1.2;
@@ -82,23 +114,21 @@ const SubTitleBox = styled.h4`
 `;
 
 const IndexList = styled.div`
-  width:100%;
   font-size:20px;
+  font-weight:normal;
   color:#fff;
-`
-const Skills = styled.div`
-  display:flex;
-  gap:8px;
+  word-break:initial;
 `
 
 const Clicked = styled.div`
+  width:100%;
   display:flex;
   gap:20px;
-`
+  `
 
 const ClickedSkill = styled.img`
-width:150px;
-height:150px;
+width:140px;
+height:140px;
 `
 
 const SkillDesc = styled.div`
@@ -106,75 +136,133 @@ color:#fff;
 font-size:20px;
 line-height:1.4;
 `
+const Skills = styled.div`
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 8px;
+  justify-content: left; 
+  width: 100%;
+`;
 
-const Skill = styled.div`
-  width:fit-content;
-  font-size:18px;
-  background:#ffbb00;
-  border-radius:20px;
-  padding:8px 14px;
-  white-space:nowrap;
-`
+const SkillButton = styled.button`
+  font-size: 16px; 
+  font-weight:bold;
+  color:#292929;
+  background: #ffbb00;
+  border-radius: 20px;
+  padding: 6px 10px; 
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+  &:hover {
+    background: #ffaa00;
+  }
+`;
 
 const Resume = () => {
+  const [clickedSkill, setClickedSkill] = useState(null); // useState 정상 사용
+
+  const handleSkillClick = (skill) => {
+    setClickedSkill(skill);
+  };
+
   return (
     <Container>
       <BasicInfo>
         <MainTitle>RESUME</MainTitle>
-        <ProfileImg src={ResumeProfile} alt='ResumeProfile' />
+        <ProfileImg src={ResumeProfile} alt="ResumeProfile" />
         <TextContainer>
-          <h2>지성준</h2>
-          <h2>지성준</h2>
-          <h2>지성준</h2>
-          <h2>지성준</h2>
-          <h2>지성준</h2>
+          <WrapText>
+            <p>이름 :</p>
+            <h2>지성준(JI SEONG JUN)</h2>
+          </WrapText>
+          <WrapText>
+            <p>생년월일 :</p>
+            <h2>1997.12.08</h2>
+          </WrapText>
+          <WrapText>
+            <p>연락처 :</p>
+            <h2>010-2971-2329</h2>
+          </WrapText>
+          <WrapText>
+            <p>주소 :</p>
+            <h2>경기도 용인시 기흥구</h2>
+          </WrapText>
         </TextContainer>
       </BasicInfo>
       <DetailInfo>
         <LeftContainer>
           <SectionContainer>
-            <SubTitleBox>Graduation</SubTitleBox>
-            <IndexList>Lorem ipsum, dolor sit amet consectetur adipisicing elit</IndexList>
-            <IndexList>Lorem ipsum, dolor sit amet consectetur adipisicing elit</IndexList>
-            <IndexList>Lorem ipsum, dolor sit amet consectetur adipisicing elit</IndexList>
-            <IndexList>Lorem ipsum, dolor sit amet consectetur adipisicing elit</IndexList>
+            <SubTitleBox>Education 🎓</SubTitleBox>
+            <IndexList>남서울대학교 시각미디어디자인학과 졸업</IndexList>
+            <p>↪ 2018.03 ~ 2024.02</p>
+            <IndexList>보라고등학교 졸업</IndexList>
+            <p>↪ 2013.03 ~ 2016.02</p>
           </SectionContainer>
           <SectionContainer>
-            <SubTitleBox>Graduation</SubTitleBox>
-            <IndexList>Lorem ipsum, dolor sit amet consectetur adipisicing elit</IndexList>
-            <IndexList>Lorem ipsum, dolor sit amet consectetur adipisicing elit</IndexList>
-            <IndexList>Lorem ipsum, dolor sit amet consectetur adipisicing elit</IndexList>
-            <IndexList>Lorem ipsum, dolor sit amet consectetur adipisicing elit</IndexList>
+            <SubTitleBox>Experience 📚</SubTitleBox>
+            <IndexList>남서울대학교 시각정보디자인학과 학생회</IndexList>
+            <p>↪ 2022.03 ~ 2022.12</p>
+            <IndexList>남서울대학교 총학생회 대학발전위원회 부장</IndexList>
+            <p>↪ 2021.03 ~ 2021.07</p>
+            <IndexList>대한민국육군 병장만기전역</IndexList>
+            <p>↪ 2019.04 ~ 2020.119</p>
+            <IndexList>남서울대학교 시각정보디자인학과 학생회</IndexList>
+            <p>↪ 2018.03 ~ 2018.12</p>
           </SectionContainer>
         </LeftContainer>
         <RightContainer>
           <SectionContainer>
-            <SubTitleBox>Graduation</SubTitleBox>
-            <IndexList>Lorem ipsum, dolor sit amet consectetur adipisicing elit</IndexList>
-            <IndexList>Lorem ipsum, dolor sit amet consectetur adipisicing elit</IndexList>
-            <IndexList>Lorem ipsum, dolor sit amet consectetur adipisicing elit</IndexList>
-            <IndexList>Lorem ipsum, dolor sit amet consectetur adipisicing elit</IndexList>
+            <SubTitleBox>Award 🏆</SubTitleBox>
+            <WrapText2>
+              <IndexList>한성기업 산학협력 프로모션</IndexList>
+              <p>↪ 최우수기획수상작 2023.09</p>
+            </WrapText2>
+            <WrapText2>
+              <IndexList>대한민국디자인전람회</IndexList>
+              <p>↪ 입선 2023.08</p>
+            </WrapText2>
+            <WrapText2>
+              <IndexList>한국상품문화디자인 국제공모전</IndexList>
+              <p>↪ 입선 2023.07</p>
+            </WrapText2>
+            <WrapText2>
+              <IndexList>대한민국패키지디자인대전</IndexList>
+              <p>↪ 패키지기술상 2022.12</p>
+            </WrapText2>
+            <WrapText2>
+              <IndexList>삼성전자갤럭시캠퍼스큐레이터</IndexList>
+              <p>↪ 2022.11</p>
+            </WrapText2>
+            <WrapText2>
+              <IndexList>한국상품문화디자인 국제공모전</IndexList>
+              <p>↪ 입선 2022.07</p>
+            </WrapText2>
+            <WrapText2>
+              <IndexList>국제사이버트렌드디자인 공모전</IndexList>
+              <p>↪ 입선 2021.12</p>
+            </WrapText2>
           </SectionContainer>
           <SectionContainer>
-            <SubTitleBox>Skills</SubTitleBox>
-            <Clicked>
-              <ClickedSkill src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAmVBMVEUAmf8Al/8Alf8Ak/8Am/8AnP8Akf/////r9v+84f/2/P/H6P/Z8f/h8v/t+v8Onv92v/+ExP/k9v+23v9Drv+Ozv+04f9pu/9Lq/+Cx/8spP9Suf8yqv92xf9EtP/n8v9nwP9as/+V0/+12P+s2/9it//z+f+h1P+a0P/N7P9ar/8cp/+f2P9xxP+m0v9ptf/B6f+s3v/N5/8/1SRZAAADnklEQVR4nO3Xy3qiShSGYVYVHgAFFNGWaIzn2NpJdt//xe0ChQRQO4MOncH3jvh9sGRJsaqwLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwvouwgsJUU2QoCS6wb8d5A0jKnqiKr8jfVpwf6y+zl2vE853l2uTQJ154XTfOKK/E2aYXpQNEgOZ8qwSDynGibj1OODUq8w2n++jr1ususRNvxV+FrPPx9vtBKvE2W/Tdz5jYeHoIsB7tePHk9+Xv7SmxS8iBKRFR75f+QtKK+Mlkpz0svtBLvkNFjOxvIdno6HXe31ybrWX9/JTYqvzfJcCKWbP1R9oHMhmEt3h8nn47bTnr0PDxXIqGb1OM/EXimBj12LrNI1gddjbkPzaRethx35nYnvWl+1iJW1fhPmLv0U6y2O8gbzqSjq/FyOIqLGTt9qJWoQrdtyc9szmc5XuhK/LIi7hEdOea6W+4yn2yz3VEq8XI46kaXuqd+rTeqpLdSZjL28skoD91EleMX1nGd1m310PPMD8vjblY8l91HVY75oYzcfVqinvsTVRnIfuqezD+lVkVnSv8bXY5Nrxj67TDsdJ/aklbYfW+ZiydVju97gsCNArHm7rJU4I+3g985zLSkFUbFqmC7I12OTVco4SB83ow3ZsUzFb5PocWTLscP+5xRP5KpXy7QCsJw8Lx5i+1yha1yha3mK7SyVSwZm4n0yXuYlrjzhpNqUzTjSGt52Ohvdg8vV9fyTIc4lp/D49XnMKXmnej6QOpoSlDT0oNXiX/94j9HvZi9SMt9LJqnm0g5fjx76of96PrCphYrVe6lQbmX/mF39GXUy7C2AF5dD61zF9WXjlrTXuzVN1wP013L2Dw/p3wTY0X1WMi6aNZRrw20mJsXpUO+iQm6v2qxWfk0TIbmIsxG9NwgZXTZl36MuUsXzTrq+zj5Tdp20gXv2T+PrAZ+ti8txwbJaJvu+UUrL3tU7E0v0Cbqvteqx/NXtu6li5qlv9hk2pNZ+m6h2sf+OP0s6W3MW7W0R+5K12OTFS77vXgehv+5v89bjdbePYXhyXXsazETJHlZkrxP00H3LQ7D6bizyf4LCXrDePJr3InlSmySBJO140TrsHj7mbw4zrqYk5V4m0oG2UD5amde6k2+FRslYtu2SClbN+MdyjJnqvI35WYEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAN/M/2rBCF/4WGjgAAAAASUVORK5CYII='></ClickedSkill>
-              <SkillDesc>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse error molestiae odio dicta eveniet nam quis enim possimus explicabo, sunt mollitia aperiam aut reprehenderit, voluptatibus similique repudiandae nemo optio illum.</SkillDesc>
-            </Clicked>
+            <SubTitleBox>Skills 🔧</SubTitleBox>
+            {clickedSkill && (
+              <Clicked>
+                <ClickedSkill src={clickedSkill.img} alt={clickedSkill.skillName} />
+                <SkillDesc>{clickedSkill.description}</SkillDesc>
+              </Clicked>
+            )}
             <Skills>
-              <Skill>HTML</Skill>
-              <Skill>CSS</Skill>
-              <Skill>JavaScript ES6+</Skill>
-              <Skill>React.js</Skill>
-              <Skill>Node.js</Skill>
-              <Skill>Next.js</Skill>
-              <Skill>Git</Skill>
+              {skillData.map((skill) => (
+                <SkillButton key={skill.id} onClick={() => handleSkillClick(skill)}>
+                  {skill.skillName}
+                </SkillButton>
+              ))}
             </Skills>
           </SectionContainer>
         </RightContainer>
       </DetailInfo>
     </Container>
-  )
-}
+  );
+};
 
 export default Resume

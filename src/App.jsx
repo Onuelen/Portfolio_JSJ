@@ -15,6 +15,7 @@ import Project from './pages/Project';
 import BgImage from './img/bg.png';
 
 
+
 const GlobalStyle = createGlobalStyle`
   ${reset}
   
