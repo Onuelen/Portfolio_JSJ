@@ -12,7 +12,7 @@ import AnimateText from './components/AnimateText';
 import Resume from './pages/Resume';
 import Works from './pages/Works';
 import Project from './pages/Project';
-import BgImage from './img/bg.png';
+import BgImage from '/img/bg.png';
 
 
 

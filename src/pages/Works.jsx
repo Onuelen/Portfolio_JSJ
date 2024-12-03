@@ -1,23 +1,22 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import WorkCard from "../components/WorkCard";
-import projectsData from "../data/worksCards.json";
-import Slider from "react-slick";
-import { RiArrowLeftWideLine, RiArrowRightWideLine } from "react-icons/ri";
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import WorkCard from '../components/WorkCard';
+import projectsData from '../data/worksCards.json';
+import Slider from 'react-slick';
+import { RiArrowLeftWideLine, RiArrowRightWideLine } from 'react-icons/ri';
 
 const Container = styled.div`
   width: 100%;
-  height:100vh;
+  height: 100vh;
   margin: 0 auto;
   padding: 140px 160px;
-  box-sizing: border-box;
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 `;
 
 const TopContain = styled.div`
-width:100%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,7 +25,7 @@ width:100%;
     color: #fff;
     font-size: 48px;
     font-weight: bold;
-    line-height:1.2;
+    line-height: 1.2;
   }
 
   .filterButtons {
@@ -36,14 +35,14 @@ width:100%;
 `;
 
 const FilterButton = styled.button`
-  width:160px;
+  width: 160px;
   padding: 10px 15px;
-  font-size:24px;
-  font-weight:bold;
+  font-size: 24px;
+  font-weight: bold;
   border-radius: 18px;
-  border:none;
-  background: ${(props) => (props.active ? "#fff700" : "#444")};
-  color: ${(props) => (props.active ? "#000" : "#fff")};
+  border: none;
+  background: ${(props) => (props.active ? '#fff700' : '#444')};
+  color: ${(props) => (props.active ? '#000' : '#fff')};
   cursor: pointer;
 
   &:hover {
@@ -53,137 +52,142 @@ const FilterButton = styled.button`
 `;
 
 const ContainCards = styled.div`
-  width:100%;
-  height:100%;
-  display:flex;
+  width: 100%;
+  display: flex;
   margin-top: 20px;
 `;
 
 const SliderContainer = styled(Slider)`
-position:relative;
-width:100%;
-background:aqua;
-.slick-slide {
-  display:flex;
-  align-items: center;
-  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  border: 1px solid #f0f;
+  .slick-slide {
   }
 
-  /* 도트 스타일 */
   .slick-dots {
     bottom: -50px;
 
     li {
       margin: 0 5px;
+
       button {
         width: 12px;
         height: 12px;
         border-radius: 50%;
         background-color: #474747;
+
         &:before {
-          display: none; /* 기본 점 스타일 제거 */
+          display: none;
         }
       }
     }
 
     .slick-active button {
-      background-color: #fff; /* 활성화 도트 색상 */
+      background-color: #fff;
     }
   }
 `;
 
-// Custom Left Arrow
 const LeftArrow = (props) => {
   const { onClick } = props;
   return (
-    <button onClick={onClick} style={{ ...arrowStyle, left: "-80px" }}>
+    <button onClick={onClick} style={{ ...arrowStyle, left: '-80px' }}>
       <RiArrowLeftWideLine />
     </button>
   );
 };
 
-// Custom Right Arrow
 const RightArrow = (props) => {
   const { onClick } = props;
   return (
-    <button onClick={onClick} style={{ ...arrowStyle, right: "-80px" }}>
+    <button onClick={onClick} style={{ ...arrowStyle, right: '-80px' }}>
       <RiArrowRightWideLine />
     </button>
   );
 };
 
-// Common arrow button styles
 const arrowStyle = {
-  position: "absolute", // 위치를 절대값으로 설정
-  top: "50%", // 세로 중앙
-  transform: "translateY(-50%)", // 세로 중앙 정렬 보정
-  zIndex: 10, // 슬라이더 위로 올라오도록 설정
-  fontSize: "100px",
-  color: "#ffffff6c",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  border: "none",
-  cursor: "pointer",
-  background: "none",
+  position: 'absolute',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  zIndex: 10,
+  fontSize: '48px',
+  color: '#ffffff6c',
+  border: 'none',
+  cursor: 'pointer',
+  background: 'none',
 };
 
 const Works = () => {
-  const [filter, setFilter] = useState("All");
+  const [filter, setFilter] = useState('All');
   const [projects, setProjects] = useState([]);
+  const [categoryCounts, setCategoryCounts] = useState({});
 
   useEffect(() => {
+    // Load projects data
     setProjects(projectsData);
+
+    // Calculate category counts
+    const counts = projectsData.reduce(
+      (acc, project) => {
+        const category = project.category.toUpperCase();
+        acc[category] = (acc[category] || 0) + 1;
+        acc['ALL'] = (acc['ALL'] || 0) + 1;
+        return acc;
+      },
+      { ALL: 0 }
+    );
+    setCategoryCounts(counts);
   }, []);
 
-  const filteredProjects = filter === "All"
-    ? projects
-    : projects.filter((project) => project.category.toLowerCase() === filter.toLowerCase());
+  const filteredProjects =
+    filter === 'All'
+      ? projects
+      : projects.filter(
+        (project) => project.category.toLowerCase() === filter.toLowerCase()
+      );
 
   const sliderSettings = {
     prevArrow: <LeftArrow />,
     nextArrow: <RightArrow />,
     dots: true,
     infinite: true,
-    // autoplay: true,
     speed: 800,
     slidesToShow: 3,
     slidesToScroll: 3,
-    rows: 1,
     autoplaySpeed: 3000,
-    centerMode: true,
-    centerPadding: "0px",
+    adaptiveWidth: true,
     responsive: [
       {
         breakpoint: 1400,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-        }
+        },
       },
       {
         breakpoint: 800,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 1
-        }
+          initialSlide: 1,
+        },
       },
-    ]
+    ],
   };
 
   return (
-    <Container>
+    <Container id='workspace'>
       <TopContain>
         <h1>WORKS</h1>
         <div className="filterButtons">
-          {["All 10", "HTML 3", "REACT 3", "NODE"].map((btn) => (
+          {['All', 'HTML', 'REACT', 'NODE'].map((btn) => (
             <FilterButton
               key={btn}
               active={filter === btn}
               onClick={() => setFilter(btn)}
             >
-              {btn}
+              {btn} {categoryCounts[btn.toUpperCase()] || 0}
             </FilterButton>
           ))}
         </div>
@@ -191,7 +195,9 @@ const Works = () => {
       <ContainCards>
         <SliderContainer {...sliderSettings}>
           {filteredProjects.map((project) => (
-            <WorkCard key={project.id} data={project} />
+            <div className='hidden2'>
+              <WorkCard key={project.id} data={project} />
+            </div>
           ))}
         </SliderContainer>
       </ContainCards>

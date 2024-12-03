@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import worksCards from '../data/worksCards.json'; // JSON 데이터 import
 
 const Container = styled.div`
   display: flex;
@@ -12,30 +11,28 @@ const Container = styled.div`
 `;
 
 const Card = styled.div`
-  width: 424px;
-  height: 240px;
-  background-image: ${(props) => `url(${props.thumb})`}; /* JSON 데이터의 thumb 적용 */
+  width: 480px;
+  height: 270px;
+  background-image: ${(props) => `url(${props.thumb})`};
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 30px 26px;
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+  }
 `;
 
 const Buttons = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 116px;
-  .linkButtons {
-    display: flex;
-    gap: 8px;
-  }
-`;
-
-const DescButton = styled.button`
-  width: 148px;
-  height: 30px;
-  border-radius: 20px;
-  background: #f0f;
+  gap: 16px;
+  position: absolute;
+  bottom: 8%;
+  right: 5%;
+  z-index: 1;
+  pointer-events: all;
+  opacity: 1;
 `;
 
 const GitButton = styled.a`
@@ -79,32 +76,25 @@ const SubTitle = styled.p`
   font-size: 16px;
 `;
 
-const WorkCards = () => {
+const WorkCard = ({ data }) => {
   return (
-    <>
-      {worksCards.map((work) => (
-        <Container key={work.id}>
-          <Card thumb={work.thumb}>
-            <Buttons>
-              <DescButton>{work.desc}</DescButton>
-              <div className="linkButtons">
-                <GitButton href={work.git} target="_blank" rel="noopener noreferrer">
-                  GIT
-                </GitButton>
-                <PageButton href={work.goto} target="_blank" rel="noopener noreferrer">
-                  GO TO PAGE
-                </PageButton>
-              </div>
-            </Buttons>
-          </Card>
-          <Titles>
-            <Title>{work.title}</Title>
-            <SubTitle>{work.subTitle}</SubTitle>
-          </Titles>
-        </Container>
-      ))}
-    </>
+    <Container>
+      <Card thumb={data.thumb}>
+        <Buttons>
+          <GitButton href={data.git} target="_blank" rel="noopener noreferrer">
+            GIT
+          </GitButton>
+          <PageButton href={data.goto} target="_blank" rel="noopener noreferrer">
+            GO TO PAGE
+          </PageButton>
+        </Buttons>
+      </Card>
+      <Titles>
+        <Title>{data.title}</Title>
+        <SubTitle>{data.subTitle}</SubTitle>
+      </Titles>
+    </Container>
   );
 };
 
-export default WorkCards;
+export default WorkCard;

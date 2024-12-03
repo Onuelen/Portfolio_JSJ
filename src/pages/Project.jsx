@@ -13,7 +13,7 @@ border:1px solid #fff;
 
 const Project = () => {
   return (
-    <Container>
+    <Container id='project'>
       <div>123</div>
     </Container>
   )

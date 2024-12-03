@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import ResumeProfile from '../img/resumeprofile.jpg'
+import ResumeProfile from '/img/resumeprofile.jpg'
 import skillData from "../data/skills.json"; // JSON 파일 import
 
 const Container = styled.div`
 width:100%;
-height:calc(100vh - 60px);
+height:100vh;
 display:flex;
-padding:60px 140px;
+padding:120px 140px;
 gap:60px;
 `
 const MainTitle = styled.div`
@@ -160,14 +160,14 @@ const SkillButton = styled.button`
 `;
 
 const Resume = () => {
-  const [clickedSkill, setClickedSkill] = useState(null); // useState 정상 사용
+  const [clickedSkill, setClickedSkill] = useState(skillData[0]); // useState 정상 사용
 
   const handleSkillClick = (skill) => {
     setClickedSkill(skill);
   };
 
   return (
-    <Container>
+    <Container id='about'>
       <BasicInfo>
         <MainTitle>RESUME</MainTitle>
         <ProfileImg src={ResumeProfile} alt="ResumeProfile" />

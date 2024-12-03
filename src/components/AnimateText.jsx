@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import gsap from 'gsap';
-import bgvideo from '../img/bgvideo4.mp4'
+import bgvideo from '/img/bgvideo4.mp4'
 
 const Container = styled.div`
   display: flex;

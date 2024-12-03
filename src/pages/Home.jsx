@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import HomeBackground from '../components/HomeBackground'
-import ProfileImage from '../img/profileImage.png'
+import ProfileImage from '/img/profileImage.png'
 
 const Container = styled.div`
   position: relative;
@@ -11,7 +11,6 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-
 `
 const GlassBoard = styled.div`
   position:absolute;
@@ -97,7 +96,7 @@ const Point = styled.div`
 
 const Home = () => {
   return (
-    <Container>
+    <Container id='home'>
       <HomeBackground />
       <GlassBoardLeft />
       <MyImage src={ProfileImage} alt='Profile Img' />
