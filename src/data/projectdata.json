@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "title": "TeamProject Oliveyoung",
+    "subTitle": "OliveYoung Web Shopingmall Redesign",
+    "thumb": "/projectImg/olive1.png",
+    "description": "HTML과 CSS를 기반으로 올리브영 홈페이지를 클론코딩하며, 리디자인 했습니다. 기존 색상이 많아 가독성이 떨어지는 부분을 보완하고 UI를 더욱 편하게 볼 수 있도록 했습니다.상세페이지와 전체적인 UIUX를 작업했습니다. 메인 페이지에서 보이는 상품 클릭시 상품의 id를 쿼리값으로 받아와 상세페이지에서 보이도록 구현했으며, 슬라이드는 slick slider를 사용했습니다. 그 외에 상품의 수량에 맞게 가격이 늘어나는 기능을 구현했습니다.",
+    "workPeriod": "24.06.04-24.08.10",
+    "teamName": "Team.노쇼금지",
+    "take": "상세페이지,전체 UIUX",
+    "skills": "javascript,scss,css,html",
+    "detailImg1": "/projectImg/olive2.png",
+    "detailImg2": "/projectImg/olive3.png"
+  },
+  {
+    "id": 2,
+    "title": "TeamProject Facebook",
+    "subTitle": "Facebook SNS Platform Clone&Redesign",
+    "thumb": "/projectImg/facebook1.png",
+    "description": "React.js를 기반으로 페이스북 SNS 플랫폼을 클론코딩하며 리디자인 했습니다. 기존 UI의 복잡한 요소를 단순화하고 사용자 경험을 향상시키는 데 중점을 두었습니다.",
+    "workPeriod": "24.07.01-24.09.01",
+    "teamName": "Team.코드장인",
+    "take": "피드 UI 및 프로필 페이지",
+    "skills": "javascript,react,scss",
+    "detailImg1": "/projectImg/facebook2.png",
+    "detailImg2": "/projectImg/facebook3.png"
+  },
+  {
+    "id": 3,
+    "title": "Moving OTT Service",
+    "subTitle": "OTT Service TVING Redesign",
+    "thumb": "/projectImg/moving1.png",
+    "description": "OTT 플랫폼 TVING을 클론코딩하며 UI/UX를 리디자인했습니다. 사용자 경험을 극대화하기 위해 직관적인 인터페이스를 제공하고, 사용자 맞춤 콘텐츠 추천 기능을 구현했습니다.",
+    "workPeriod": "24.05.01-24.06.20",
+    "teamName": "Team.UI천재",
+    "take": "메인 페이지 및 추천 알고리즘",
+    "skills": "javascript,scss,html",
+    "detailImg1": "/projectImg/moving2.png",
+    "detailImg2": "/projectImg/moving3.png"
+  },
+  {
+    "id": 4,
+    "title": "Portfolio",
+    "subTitle": "My Portfolio",
+    "thumb": "/projectImg/portfolio1.png",
+    "description": "프론트엔드 개발자로서의 역량을 보여주기 위해 포트폴리오 사이트를 제작했습니다. 반응형 디자인과 인터랙티브한 UI를 중심으로 설계되었습니다.",
+    "workPeriod": "24.01.01-24.03.01",
+    "teamName": "Personal Project",
+    "take": "전체 설계 및 구현",
+    "skills": "javascript,react,scss,html",
+    "detailImg1": "/projectImg/portfolio2.png",
+    "detailImg2": "/projectImg/portfolio3.png"
+  }
+]

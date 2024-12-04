@@ -10,17 +10,31 @@ const Container = styled.div`
   align-items: start;
 `;
 
-const Card = styled.div`
+const CardContainer = styled.div`
+  position: relative;
   width: 480px;
   height: 270px;
-  background-image: ${(props) => `url(${props.thumb})`};
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: relative;
   cursor: pointer;
-  &:hover {
-    opacity: 0.6;
+
+  &:hover .card-background img {
+    filter: blur(3px);
+    transition: 0.5s ease-in-out;
+  }
+`;
+
+const CardBackground = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(0);
+    transition: 0.5s ease-in-out;
   }
 `;
 
@@ -31,8 +45,6 @@ const Buttons = styled.div`
   bottom: 8%;
   right: 5%;
   z-index: 1;
-  pointer-events: all;
-  opacity: 1;
 `;
 
 const GitButton = styled.a`
@@ -40,8 +52,9 @@ const GitButton = styled.a`
   width: 124px;
   height: 40px;
   border-radius: 8px;
-  background: #f0f;
+  background: #ff5100;
   color: #fff;
+  font-weight:bold;
   text-align: center;
   line-height: 40px;
   text-decoration: none;
@@ -52,8 +65,9 @@ const PageButton = styled.a`
   width: 124px;
   height: 40px;
   border-radius: 8px;
-  background: #f0f;
+  background: #ff5100;
   color: #fff;
+  font-weight:bold;
   text-align: center;
   line-height: 40px;
   text-decoration: none;
@@ -79,7 +93,10 @@ const SubTitle = styled.p`
 const WorkCard = ({ data }) => {
   return (
     <Container>
-      <Card thumb={data.thumb}>
+      <CardContainer>
+        <CardBackground className="card-background">
+          <img src={data.thumb} alt="Thumbnail" />
+        </CardBackground>
         <Buttons>
           <GitButton href={data.git} target="_blank" rel="noopener noreferrer">
             GIT
@@ -88,7 +105,7 @@ const WorkCard = ({ data }) => {
             GO TO PAGE
           </PageButton>
         </Buttons>
-      </Card>
+      </CardContainer>
       <Titles>
         <Title>{data.title}</Title>
         <SubTitle>{data.subTitle}</SubTitle>

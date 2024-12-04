@@ -35,19 +35,20 @@ const TopContain = styled.div`
 `;
 
 const FilterButton = styled.button`
-  width: 160px;
-  padding: 10px 15px;
-  font-size: 24px;
+  width: 120px;
+  padding: 8px 15px;
+  font-size: 20px;
   font-weight: bold;
   border-radius: 18px;
-  border: none;
-  background: ${(props) => (props.active ? '#fff700' : '#444')};
-  color: ${(props) => (props.active ? '#000' : '#fff')};
+  border: 2px solid #fff700;
+  background: ${(props) => (props.active ? '#fff700' : 'none')};
+  color: ${(props) => (props.active ? '#252525' : '#fff')};
   cursor: pointer;
-
+  transition:all 0.3s ease-in-out;
   &:hover {
     background: #fff700;
-    color: #000;
+    color:#000;
+    border:2px solid #fff700;
   }
 `;
 
@@ -124,10 +125,8 @@ const Works = () => {
   const [categoryCounts, setCategoryCounts] = useState({});
 
   useEffect(() => {
-    // Load projects data
     setProjects(projectsData);
 
-    // Calculate category counts
     const counts = projectsData.reduce(
       (acc, project) => {
         const category = project.category.toUpperCase();

@@ -121,7 +121,7 @@ const AnimateText = () => {
       <TextLine className='leftMove'>
         <Imoji className='purple'>🏀</Imoji>
         <Text>developer</Text>
-        <ImgSource src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHZqj-XReJ2R76nji51cZl4ETk6-eHRmZBRw&s' alt='Dummy' />
+        <ImgSource src={bgvideo} autoPlay loop muted />
         <Text>publisher</Text>
       </TextLine>
       <GlassMop2 />
