@@ -11,14 +11,15 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  /* border:1px solid #f0f; */
 `
 const GlassBoard = styled.div`
   position:absolute;
-  top:180px;
-  left:880px;
+  top:28%;
+  right:15%;
   width:640px;
   height:400px;
-  border-radius:25px;
+  border-radius:1.5rem;
   background: linear-gradient(135deg,rgba( 255, 255, 255, 0.3 ),rgba(0, 0, 0, 0.1) ) ;
   box-shadow: 0 6px 15px 0 rgba( 131, 174, 255, 0.2 );
   backdrop-filter: blur( 4px );
@@ -29,25 +30,25 @@ const GlassBoard = styled.div`
   z-index:1;
 `
 const GlassBoardLeft = styled(GlassBoard)`
-  width:360px;
-  height:200px;
-  top:28vh;
+  width:22%;
+  height:14%;
+  top:80%;
   right:0px;
-  left:310px;
-  border-radius:25px;
-  background: linear-gradient(135deg,rgba( 255, 255, 255, 0.3 ),rgba(0, 0, 0, 0.1) ) ;
-  box-shadow: 0 6px 15px 0 rgba( 131, 174, 255, 0.2 );
-  backdrop-filter: blur( 4px );
-  -webkit-backdrop-filter: blur( 4px );
+  left:5%;
+  border-radius:1.5rem;
+  background: linear-gradient(135deg,rgba( 255, 255, 255, 0.4 ),rgba(0, 0, 0, 0.2) ) ;
+  box-shadow: 0 6px 15px 0 rgba( 131, 174, 255, 0.3 );
+  backdrop-filter: blur( 6px );
+  -webkit-backdrop-filter: blur( 6px );
   border: 1px solid rgba( 255, 255, 255, 0.1 );
-
+  z-index:10;
 `
 
 const MyImage = styled.img`
   position:absolute;
-  width:450px;
-  top:50px;
-  left:520px;
+  width:46%;
+  bottom:0;
+  left:10%;
   z-index:2;
 `
 
@@ -98,17 +99,21 @@ const Home = () => {
   return (
     <Container id='home'>
       <HomeBackground />
-      <GlassBoardLeft />
-      <MyImage src={ProfileImage} alt='Profile Img' />
-      <GlassBoard>
-        <Point />
-        <TextContainer>
-          <Name>JI SEONG JUN</Name>
-          <SubTitle><Highlight>I'M</Highlight> FrontEnd Developer</SubTitle>
-          <p>안녕하세요! 저는 인터랙티브한 애니메이션으로 매력적인 웹을 설계하는 프론트엔드 개발자가 되고싶은 지성준입니다. 새로운 기술과 창의적인 아이디어로 사용자에게 신선한 경험을 주고싶습니다. 끊임없이 배우며 더 나은 페이지를 만들어가겠습니다." </p>
-          <Highlight><p>I USED HTML, CSS, Javascript ES6+, React.js, Next.js, Node.js, Figma, TypeScript</p>  </Highlight>
-        </TextContainer>
-      </GlassBoard>
+      <div className='positionContainer'>
+        <GlassBoardLeft>
+
+        </GlassBoardLeft>
+        <MyImage src={ProfileImage} alt='Profile Img' />
+        <GlassBoard>
+          <Point />
+          <TextContainer>
+            <Name>JI SEONG JUN</Name>
+            <SubTitle><Highlight>I'M</Highlight> FrontEnd Developer</SubTitle>
+            <p>안녕하세요! 저는 인터랙티브한 애니메이션으로 매력적인 웹을 설계하는 프론트엔드 개발자가 되고싶은 지성준입니다. 새로운 기술과 창의적인 아이디어로 사용자에게 신선한 경험을 주고싶습니다. 끊임없이 배우며 더 나은 페이지를 만들어가겠습니다." </p>
+            <Highlight><p>I USED HTML, CSS, Javascript ES6+, React.js, Next.js, Node.js, Figma, TypeScript</p>  </Highlight>
+          </TextContainer>
+        </GlassBoard>
+      </div>
     </Container>
   )
 }

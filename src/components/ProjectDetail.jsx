@@ -7,7 +7,7 @@ const ModalBackground = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,10 +15,10 @@ const ModalBackground = styled.div`
 `;
 
 const ModalContent = styled.div`
-  background: #fff;
+  background: #858585;
   width: 84%;
-  height: 70%;
-  border-radius: 10px;
+  height: 74%;
+  border-radius: 1rem;
   padding: 20px;
   position: relative;
   color: #000;
@@ -26,23 +26,162 @@ const ModalContent = styled.div`
 
 const CloseButton = styled.button`
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 9%;
+  right: 3%;
   background: transparent;
   border: none;
-  font-size: 18px;
+  font-size: 2rem;
+  color:#fff;
   cursor: pointer;
 `;
 
+const LeftWrap = styled.div`
+position:absolute;
+top:10%;
+left:4%;
+  display:flex;
+  width:26%;
+  height:89%;
+  flex-direction:column;
+
+  .title {
+    padding-left:0.4rem;
+    font-size:4rem;
+    font-weight:bold;
+    line-height:1.2;
+    color:#fff;
+    margin-bottom:2rem;
+  }
+  .desc {
+    width:100%;
+    background:#b1b1b173;
+    color:#2b2b2b;
+    padding:1.2rem 1.2rem;
+    font-size:1rem;
+    line-height:1.4;
+    border-radius:1.4rem;
+    margin-bottom:1rem;
+  }
+  .textWrap{
+    width:100%;
+    background:#b1b1b173;
+    color:#2b2b2b;
+    padding:1.2rem 1.2rem;
+    border-radius:1.4rem;
+    line-height:1.4rem;
+    margin-bottom:1rem;
+  }
+`
+const SkillsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem; 
+  padding:0 0.2rem;
+`;
+
+const SkillTag = styled.span`
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ececec;
+  background: #252525;
+  border-radius: 0.2rem;
+  /* box-shadow: 0.1rem 0.2rem 0.4rem rgba(0, 0, 0, 0.2); */
+`;
+
+const ImageBackground = styled.div`
+width:68%;
+height:86%;
+display:flex;
+flex-direction:column;
+position:absolute;
+top: 52%;
+right:0;
+transform:translate(0, -50%);
+border-radius: 1rem 0 0 1rem;
+padding: 3rem 3.5rem;   
+background:#6e6e6ea7;
+gap:2.4rem;
+.subTitle {
+  font-size:1.4rem;
+  margin-left:0.4rem;
+  color:#fff;
+}
+.imageWrap{
+  display:flex;
+  justify-content: space-between;
+  gap:2rem;
+  /* border:1px solid #f0f; */
+  .thumb1{
+    width:700px;
+    height:350px;
+    border-radius: 1rem;
+    box-shadow: 2px 3px 1rem rgba(0,0,0,0.3);
+  }
+  .thumb2{
+    width:200px;
+    height:350px;
+    border-radius:1rem;
+    box-shadow: 2px 3px 1rem rgba(0,0,0,0.3);
+  }
+}
+.btnWrap {
+  display:flex;
+  gap:1rem;
+  justify-content:right;
+  font-size:1.2rem;
+  color:#ececec;
+  font-weight:bold;
+  & > div {
+    width:fit-content;
+    padding:0.7rem 2rem;
+    background:#252525;
+    border-radius:2rem;
+    cursor: pointer;
+    box-shadow: 2px 3px 0.5rem rgba(0,0,0,0.4),inset 0 0 0.5rem rgba(255,255,255,0);
+    transition:all 0.5s;
+    &:hover{
+      box-shadow: 0px 0px 0.5rem rgba(0,0,0,0),inset 0 0 0.5rem rgba(0,0,0,0.4);
+
+    }
+  }
+}
+`
+
+
 const ProjectDetail = ({ data, onClose }) => {
+  const skillsArray = data.skills.split(',');
   return (
     <ModalBackground onClick={onClose}>
+      <CloseButton onClick={onClose}>X</CloseButton>
       <ModalContent onClick={(e) => e.stopPropagation()}>
-        <CloseButton onClick={onClose}>X</CloseButton>
-        <h2>{data.title}</h2>
-        <p>{data.description}</p>
-        {/* <img src={data.detailImg1} alt="Detail 1" />
-        <img src={data.detailImg2} alt="Detail 2" /> */}
+        <LeftWrap>
+          <h2 className='title'>{data.title}</h2>
+          <p className='desc'>{data.description}</p>
+          <div className='textWrap'>
+            <p className='period'>작업기간 : {data.workPeriod}</p>
+            <p className='teamName'>{data.teamName}</p>
+            <p className='take'>기여도 : {data.take}</p>
+          </div>
+          <SkillsContainer>
+            {skillsArray.map((skill, index) => (
+              <SkillTag key={index}>{skill.trim()}</SkillTag>
+            ))}
+          </SkillsContainer>
+        </LeftWrap>
+        <ImageBackground>
+          <h2 className='subTitle'>{data.subTitle}</h2>
+          <div className='imageWrap'>
+            <img className='thumb1' src={data.detailImg1} alt="Detail 1" />
+            <img className='thumb2' src={data.detailImg2} alt="Detail 2" />
+          </div>
+          <div className='btnWrap'>
+            <div className='btnFigma'>Figma</div>
+            <div className='btnPage'>Go To Page</div>
+            <div className='btnGit'>Git</div>
+          </div>
+        </ImageBackground>
       </ModalContent>
     </ModalBackground>
   );

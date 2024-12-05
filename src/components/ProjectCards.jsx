@@ -8,7 +8,7 @@ const CardContainer = styled.div`
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color:#fff;
-  overflow: hidden; /* 자식 요소가 부모를 벗어나지 않도록 */
+  overflow: hidden;
   cursor: pointer;
   &:hover {
     transition: all 0.3s ease-in-out;

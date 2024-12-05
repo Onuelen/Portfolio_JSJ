@@ -14,7 +14,7 @@ const Container = styled.section`
 `
 
 const IntroTitle = styled.div`
-  color: #637ED8;
+  color: #006eff;
   max-width: 45%;
   text-align: center;
   mix-blend-mode: difference;
@@ -27,7 +27,7 @@ const IntroTitle = styled.div`
 const IntroBackground = styled.div`
   position: absolute;
   top: 0;
-  background-color: #272727;
+  background-color: #1f1f1f;
   width: 50%;
   height: 100%;
   transform: scaleX(0);
@@ -91,7 +91,7 @@ const Intro = () => {
 
   return (
     <Container className="Container">
-      <IntroTitle className="IntroTitle">HELLO</IntroTitle>
+      <IntroTitle className="IntroTitle">Hi!</IntroTitle>
       <IntroBackLeft className='IntroBackground' />
       <IntroBackRight className='IntroBackground' />
     </Container>

@@ -61,7 +61,6 @@ const ContainCards = styled.div`
 const SliderContainer = styled(Slider)`
   position: relative;
   width: 100%;
-  border: 1px solid #f0f;
   .slick-slide {
   }
 
@@ -89,34 +88,48 @@ const SliderContainer = styled(Slider)`
   }
 `;
 
+const ArrowButton = styled.button`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  font-size: 48px;
+  color: #ffffff6c;
+  border: none;
+  cursor: pointer;
+  background: none;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    color: #fff;
+    scale:1.1;
+  }
+
+  &.left {
+    left: -80px;
+  }
+
+  &.right {
+    right: -80px;
+  }
+`;
+
 const LeftArrow = (props) => {
   const { onClick } = props;
   return (
-    <button onClick={onClick} style={{ ...arrowStyle, left: '-80px' }}>
+    <ArrowButton className="left" onClick={onClick}>
       <RiArrowLeftWideLine />
-    </button>
+    </ArrowButton>
   );
 };
 
 const RightArrow = (props) => {
   const { onClick } = props;
   return (
-    <button onClick={onClick} style={{ ...arrowStyle, right: '-80px' }}>
+    <ArrowButton className="right" onClick={onClick}>
       <RiArrowRightWideLine />
-    </button>
+    </ArrowButton>
   );
-};
-
-const arrowStyle = {
-  position: 'absolute',
-  top: '50%',
-  transform: 'translateY(-50%)',
-  zIndex: 10,
-  fontSize: '48px',
-  color: '#ffffff6c',
-  border: 'none',
-  cursor: 'pointer',
-  background: 'none',
 };
 
 const Works = () => {

@@ -24,13 +24,20 @@ const GlobalStyle = createGlobalStyle`
   padding: 0;
   box-sizing: border-box;
   }
-ul, li{
-  list-style: none;
-}
-  a{
-  text-decoration: none;
-  color: inherit;
-}
+
+  html {
+    font-size: 16px; /* 기본 폰트 크기 설정 */
+  }
+
+  ul, li {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   body {
     font-family: "Noto Sans KR", sans-serif;
     background:
@@ -43,9 +50,9 @@ ul, li{
   }
 `;
 
+
 const Container = styled.div`
 margin-top: 60px;
-height: 500vh;
 `
 
 
@@ -53,7 +60,7 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      {/* <Intro /> */}
+      <Intro />
       <Header />
       <Container>
         <Home />

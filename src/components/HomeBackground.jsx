@@ -7,7 +7,7 @@ const Container = styled.div`
 const ReactDiv = styled.div`
   position: absolute;
   top: 11vh;
-  left: 14vw;
+  left: 8%;
   transform:rotate(-20deg);
   background-color: #637ED8;
   color:#fff;
@@ -21,7 +21,7 @@ const ReactDiv = styled.div`
 
 const HTMLDiv = styled.div`
   position: absolute;
-  top: 32vh;
+  top: 34%;
   left: 19vw;
   width:174px;
   height:66px;
@@ -39,8 +39,8 @@ const HTMLDiv = styled.div`
 
 const CSSDiv = styled.div`
   position: absolute;
-  top: 49vh;
-  left: 25vw;
+  top: 50%;
+  left: 15%;
   background-color: #637ED8;
   color: white;
   width:208px;
@@ -56,8 +56,8 @@ const CSSDiv = styled.div`
 
 const NextDiv = styled.div`
   position: absolute;
-  top: 68vh;
-  left: 17vw;
+  top: 75vh;
+  left: 14vw;
   background-color: #637ED8;
   color: white;
   padding: 16px 40px;
@@ -70,7 +70,7 @@ const NextDiv = styled.div`
 
 const PhotoshopDiv = styled.div`
   position: absolute;
-  top: 69vh;
+  top: 65%;
   left: 10vw;
   width:240px;
   height:50px;
@@ -87,8 +87,8 @@ const PhotoshopDiv = styled.div`
 
 const JsDiv = styled.div`
   position: absolute;
-  top: 240px;
-  right: 24vw;
+  top: 16%;
+  right: 10%;
   width:174px;
   height:66px;
   background-color:#808080;
@@ -102,8 +102,8 @@ const JsDiv = styled.div`
 
 const AiDiv = styled.div`
   position: absolute;
-  top: 47vh;
-  right: 14vw;
+  top: 34%;
+  right: 1%;
   width:180px;
   height:80px;
   background-color:#637ED8;
@@ -117,8 +117,8 @@ const AiDiv = styled.div`
 
 const NodeDiv = styled.div`
   position: absolute;
-  top: 64vh;
-  right: 18vw;
+  top: 66%;
+  right: 6%;
   width:240px;
   height:64px;
   background-color:#808080;
@@ -134,8 +134,8 @@ const NodeDiv = styled.div`
 
 const GitDiv = styled.div`
   position: absolute;
-  top: 68vh;
-  right: 26.5vw;
+  top: 74%;
+  right: 36%;
   width:190px;
   height:68px;
   background-color:#637ED8;
@@ -151,8 +151,8 @@ const GitDiv = styled.div`
 
 const FigmaDiv = styled.div`
   position: absolute;
-  top: 70vh;
-  right: 37vw;
+  top: 86%;
+  right: 44%;
   width:210px;
   height:50px;
   background-color:#383838;

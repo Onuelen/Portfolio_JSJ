@@ -9,11 +9,12 @@ const Container = styled.div`
   gap: 80px;
   overflow-x: hidden;
   position: relative;
-  height: 445px;
+  height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom:10vh;
+
 `;
 
 const TextLine = styled.div`
@@ -52,7 +53,7 @@ const Imoji = styled.p`
 
 const GlassMorphism = styled.div`
   position: absolute;
-  top: 0;
+  top: 8%;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));
   box-shadow: 0 6px 15px 0 rgba(223, 234, 255, 0.1);
   backdrop-filter: blur(6px);
@@ -68,7 +69,7 @@ const GlassMop2 = styled(GlassMorphism)`
   width: 424px;
   height: 200px;
   right: 2vw;
-  top: 230px;
+  top: 50%;
 `;
 
 const AnimateText = () => {
