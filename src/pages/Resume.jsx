@@ -7,8 +7,9 @@ const Container = styled.div`
 width:100%;
 height:100vh;
 display:flex;
-padding:120px 140px;
+padding:80px 140px;
 gap:60px;
+border:1px solid #ff0;
 `
 const MainTitle = styled.div`
   font-size:48px;
@@ -98,6 +99,13 @@ const SectionContainer = styled.div`
     color:#c5c5c5;
     font-size:18px;
   }
+  .clickText {
+    font-size:1.6rem;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    margin-top:-2rem;
+  }
 `
 
 const SubTitleBox = styled.h4`
@@ -139,28 +147,36 @@ line-height:1.4;
 const Skills = styled.div`
   display: flex;
   flex-wrap: wrap; 
-  gap: 8px;
+  gap: 0.5rem;
   justify-content: left; 
   width: 100%;
+  padding: 0 0.4rem;
 `;
 
 const SkillButton = styled.button`
   font-size: 16px; 
-  font-weight:bold;
-  color:#292929;
-  background: #ffbb00;
+  font-weight: bold;
+  color: #292929;
+  background: ${(props) => (props.isActive ? '#ffe600' : '#ff9100')};
   border-radius: 20px;
   padding: 6px 10px; 
   white-space: nowrap;
   cursor: pointer;
   border: none;
+
   &:hover {
-    background: #ffaa00;
+    background: ${(props) => (props.isActive ? '#ffe600' : '#ffe600')};
+    transform: translateY(-12%);
+  }
+
+  &:active {
+    background: ${(props) => (props.isActive ? '#ffcc00' : '#ffd700')};
+    box-shadow: ${(props) => (props.isActive ? 'inset 2px 2px 4px rgba(0, 0, 0, 0.5)' : 'none')};
   }
 `;
 
 const Resume = () => {
-  const [clickedSkill, setClickedSkill] = useState(skillData[0]); // useState 정상 사용
+  const [clickedSkill, setClickedSkill] = useState(skillData[2]); // useState 정상 사용
 
   const handleSkillClick = (skill) => {
     setClickedSkill(skill);
@@ -253,15 +269,20 @@ const Resume = () => {
             )}
             <Skills>
               {skillData.map((skill) => (
-                <SkillButton key={skill.id} onClick={() => handleSkillClick(skill)}>
+                <SkillButton
+                  key={skill.id}
+                  isActive={clickedSkill.id === skill.id}
+                  onClick={() => handleSkillClick(skill)}
+                >
                   {skill.skillName}
                 </SkillButton>
               ))}
             </Skills>
+            <p className='clickText'>↪ Click Button ! </p>
           </SectionContainer>
         </RightContainer>
       </DetailInfo>
-    </Container>
+    </Container >
   );
 };
 

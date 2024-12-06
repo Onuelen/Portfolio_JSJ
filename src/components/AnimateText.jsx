@@ -6,15 +6,15 @@ import bgvideo from '/img/bgvideo4.mp4'
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 100px;
   overflow-x: hidden;
   position: relative;
-  height: 60vh;
+  height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom:10vh;
-
+  margin-bottom:6vh;
+  border:1px solid #f0f;
 `;
 
 const TextLine = styled.div`
@@ -53,7 +53,7 @@ const Imoji = styled.p`
 
 const GlassMorphism = styled.div`
   position: absolute;
-  top: 8%;
+  top: 14%;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));
   box-shadow: 0 6px 15px 0 rgba(223, 234, 255, 0.1);
   backdrop-filter: blur(6px);
@@ -69,7 +69,7 @@ const GlassMop2 = styled(GlassMorphism)`
   width: 424px;
   height: 200px;
   right: 2vw;
-  top: 50%;
+  top: 52%;
 `;
 
 const AnimateText = () => {

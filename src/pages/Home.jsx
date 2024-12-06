@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import HomeBackground from '../components/HomeBackground'
-import ProfileImage from '/img/profileImage.png'
+import ProfileImage from '/img/profileImage3.png'
 
 const Container = styled.div`
   position: relative;

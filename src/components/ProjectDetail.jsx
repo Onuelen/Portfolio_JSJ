@@ -7,7 +7,11 @@ const ModalBackground = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba( 0, 0, 0, 0.3 );
+  backdrop-filter: blur( 15px );
+  -webkit-backdrop-filter: blur( 15px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,13 +19,18 @@ const ModalBackground = styled.div`
 `;
 
 const ModalContent = styled.div`
-  background: #858585;
   width: 84%;
   height: 74%;
   border-radius: 1rem;
   padding: 20px;
   position: relative;
   color: #000;
+background: rgba( 0, 0, 0, 0.55 );
+box-shadow: 0 8px 50px rgba( 70, 70, 70, 0.5 );
+backdrop-filter: blur( 7.5px );
+-webkit-backdrop-filter: blur( 7.5px );
+border-radius: 10px;
+/* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
 `;
 
 const CloseButton = styled.button`
@@ -101,8 +110,12 @@ right:0;
 transform:translate(0, -50%);
 border-radius: 1rem 0 0 1rem;
 padding: 3rem 3.5rem;   
-background:#6e6e6ea7;
 gap:2.4rem;
+background: rgba( 255, 255, 255, 0.2 );
+box-shadow: 0 8px 40px 0 rgba( 31, 38, 38, 0.25 );
+backdrop-filter: blur( 7.5px );
+-webkit-backdrop-filter: blur( 7.5px );
+border: 1px solid rgba( 255, 255, 255, 0.18 );
 .subTitle {
   font-size:1.4rem;
   margin-left:0.4rem;
