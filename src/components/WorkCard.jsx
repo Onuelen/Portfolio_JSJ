@@ -15,10 +15,13 @@ const CardContainer = styled.div`
   width: 480px;
   height: 270px;
   cursor: pointer;
-
   &:hover .card-background img {
-    filter: blur(3px);
+    filter: blur(2px);
     transition: 0.5s ease-in-out;
+  }
+  &:hover div {
+    bottom: 8%;
+    opacity: 1;
   }
 `;
 
@@ -42,9 +45,19 @@ const Buttons = styled.div`
   display: flex;
   gap: 16px;
   position: absolute;
-  bottom: 8%;
+  bottom: 2%;
   right: 5%;
   z-index: 1;
+  opacity:0;
+  transition:all 1s;
+  & > a {
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  transition:all 0.3s;
+  &:hover {
+    background:#96420e;
+    box-shadow:inset 1px 1px 8px rgba(0,0,0,0.6);
+  }
+}
 `;
 
 const GitButton = styled.a`
@@ -58,6 +71,7 @@ const GitButton = styled.a`
   text-align: center;
   line-height: 40px;
   text-decoration: none;
+
 `;
 
 const PageButton = styled.a`

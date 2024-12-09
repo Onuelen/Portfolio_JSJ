@@ -11,7 +11,6 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  /* border:1px solid #f0f; */
 `
 const GlassBoard = styled.div`
   position:absolute;
@@ -22,8 +21,8 @@ const GlassBoard = styled.div`
   border-radius:1.5rem;
   background: linear-gradient(135deg,rgba( 255, 255, 255, 0.3 ),rgba(0, 0, 0, 0.1) ) ;
   box-shadow: 0 6px 15px 0 rgba( 131, 174, 255, 0.2 );
-  backdrop-filter: blur( 4px );
-  -webkit-backdrop-filter: blur( 4px );
+  backdrop-filter: blur( 5px );
+  -webkit-backdrop-filter: blur( 5px );
   border: 1px solid rgba( 255, 255, 255, 0.1 );
   display:flex;
   justify-content: center;

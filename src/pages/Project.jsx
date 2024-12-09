@@ -28,7 +28,7 @@ const Project = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <Container>
+    <Container id='project'>
       <Title>PROJECT</Title>
       <CardsContainer>
         {projectData.map((project) => (

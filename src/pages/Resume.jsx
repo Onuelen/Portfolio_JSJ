@@ -1,7 +1,18 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import ResumeProfile from '/img/resumeprofile.jpg'
 import skillData from "../data/skills.json"; // JSON 파일 import
+
+const ClickedAnimation = keyframes`
+  0%{
+    opacity:0;
+    transform:translate(-2%,0);
+  }
+  100%{
+    opacity:1;
+    transform:translate(0,0);
+  }
+`
 
 const Container = styled.div`
 width:100%;
@@ -132,6 +143,7 @@ const Clicked = styled.div`
   width:100%;
   display:flex;
   gap:20px;
+  animation:${ClickedAnimation} 0.5s ease-in-out;
   `
 
 const ClickedSkill = styled.img`
@@ -158,28 +170,30 @@ const SkillButton = styled.button`
   font-weight: bold;
   color: #292929;
   background: ${(props) => (props.isActive ? '#ffe600' : '#ff9100')};
-  border-radius: 20px;
-  padding: 6px 10px; 
-  white-space: nowrap;
-  cursor: pointer;
-  border: none;
-
+  box-shadow:${(props) => (props.isActive ? 'inset 2px 2px 10px rgba(59, 59, 59, 0.8)' : 'inset 4px 4px 10px rgba(0, 0, 0, 0)')};
+border-radius: 20px;
+padding: 6px 10px;
+white-space: nowrap;
+cursor: pointer;
+border: none;
+transition:all 0.3s ease-in;
   &:hover {
-    background: ${(props) => (props.isActive ? '#ffe600' : '#ffe600')};
-    transform: translateY(-12%);
-  }
-
+  background: ${(props) => (props.isActive ? '#ffe600' : '#ffe600')};
+  transform: translateY(-12%);
+}
   &:active {
-    background: ${(props) => (props.isActive ? '#ffcc00' : '#ffd700')};
-    box-shadow: ${(props) => (props.isActive ? 'inset 2px 2px 4px rgba(0, 0, 0, 0.5)' : 'none')};
-  }
+  background: ${(props) => (props.isActive ? '#ffcc00' : '#ffd700')};
+  box-shadow: ${(props) => (props.isActive ? 'inset 2px 2px 4px rgba(0, 0, 0, 0.5)' : 'none')};
+}
 `;
 
 const Resume = () => {
-  const [clickedSkill, setClickedSkill] = useState(skillData[2]); // useState 정상 사용
+  const [clickedSkill, setClickedSkill] = useState(skillData[2]);
+  const [animationKey, setAnimationKey] = useState(0);
 
   const handleSkillClick = (skill) => {
     setClickedSkill(skill);
+    setAnimationKey((prevKey) => prevKey + 1);
   };
 
   return (
@@ -262,7 +276,7 @@ const Resume = () => {
           <SectionContainer>
             <SubTitleBox>Skills 🔧</SubTitleBox>
             {clickedSkill && (
-              <Clicked>
+              <Clicked key={animationKey}>
                 <ClickedSkill src={clickedSkill.img} alt={clickedSkill.skillName} />
                 <SkillDesc>{clickedSkill.description}</SkillDesc>
               </Clicked>

@@ -1,7 +1,7 @@
 import React from 'react';
 import ProgressBar from './ProgressBar';
 import styled from 'styled-components';
-import { Link } from 'react-scroll'; // react-scroll import
+import { Link } from 'react-scroll';
 
 const Container = styled.div`
   width: 100%;
@@ -28,7 +28,6 @@ const MenuContainer = styled.div`
   align-items: center;
   color: #fff;
   gap:520px;
-  /* padding:0 14vw; */
 `;
 
 const Title = styled.div`
@@ -81,7 +80,9 @@ const Menu = styled.div`
 
 
 const Header = () => {
+
   const NAV_HEIGHT = 60;
+
   return (
     <Container>
       <Glass>
@@ -89,7 +90,7 @@ const Header = () => {
         <MenuContainer>
           <Title>Portfoilo</Title>
           <Menu>
-            <Link to="home" smooth={true} duration={500} offset={-NAV_HEIGHT}>
+            <Link to="home" smooth={true} duration={600} offset={-NAV_HEIGHT}>
               <p>HOME</p>
             </Link>
             <Link to="about" smooth={true} duration={500} >
@@ -98,7 +99,7 @@ const Header = () => {
             <Link to="workspace" smooth={true} duration={500} offset={-NAV_HEIGHT}>
               <p>WORKSPACE</p>
             </Link>
-            <Link to="project" smooth={true} duration={500} offset={-NAV_HEIGHT}>
+            <Link to="project" smooth={true} duration={500} offset={NAV_HEIGHT / 2} >
               <p>PROJECT</p>
             </Link>
             <Link to="contact" smooth={true} duration={500} offset={-NAV_HEIGHT}>
@@ -107,7 +108,7 @@ const Header = () => {
           </Menu>
         </MenuContainer>
       </Glass>
-    </Container>
+    </Container >
   );
 };
 

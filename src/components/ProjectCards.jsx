@@ -31,7 +31,7 @@ const CardContainer = styled.div`
         width:120%;
         height:280%;
         background: #ffffff11;
-        animation: circlepop 0.5s ease-in forwards;
+        animation: circlepop 0.7s ease-in forwards;
       }
 @keyframes circlepop {
     0% {

@@ -7,12 +7,12 @@ import reset from 'styled-reset';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Intro from './components/Intro';
-import Test from './components/Test';
 import AnimateText from './components/AnimateText';
 import Resume from './pages/Resume';
 import Works from './pages/Works';
 import Project from './pages/Project';
 import BgImage from '/img/bg.png';
+import Contact from './pages/Contact';
 
 
 
@@ -68,6 +68,7 @@ const App = () => {
         <Resume />
         <Works />
         <Project />
+        <Contact />
       </Container>
     </>
   )
