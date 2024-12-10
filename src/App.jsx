@@ -1,5 +1,4 @@
 import React from 'react'
-import { Router, RouterProvider } from 'react-router-dom';
 import { styled, createGlobalStyle } from 'styled-components'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -26,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    font-size: 16px; /* 기본 폰트 크기 설정 */
+    font-size: 16px; 
   }
 
   ul, li {
@@ -41,12 +40,12 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: "Noto Sans KR", sans-serif;
     background:
-      rgba(0, 0, 0, 0.5) /* 반투명 검정색 레이어 */
+      rgba(0, 0, 0, 0.5) 
       url(${BgImage}) 
       no-repeat center center;
     background-size: contain;
     background-repeat: repeat;
-    background-blend-mode: multiply; /* 이미지와 색상의 혼합 모드 */
+    background-blend-mode: multiply; 
   }
 `;
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-// 애니메이션 정의
 const createVerticalAnimation = (rotateValue) => keyframes`
   0%, 100% {
     transform: translateY(0) rotate(${rotateValue});
@@ -11,14 +10,12 @@ const createVerticalAnimation = (rotateValue) => keyframes`
   }
 `;
 
-// 컨테이너 스타일
 const Container = styled.div`
   position: relative;
   width: 100vw;
   height: 100vh;
 `;
 
-// 공통 스타일 정의
 const AnimatedDiv = styled.div`
   position: absolute;
   background-color: ${(props) => props.bgColor || '#637ED8'};

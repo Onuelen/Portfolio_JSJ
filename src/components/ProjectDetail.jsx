@@ -7,11 +7,9 @@ const ModalBackground = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba( 0, 0, 0, 0.3 );
-  backdrop-filter: blur( 15px );
-  -webkit-backdrop-filter: blur( 15px );
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  background: rgba( 255, 255, 255, 0.3 );
+  backdrop-filter: blur( 1rem );
+  -webkit-backdrop-filter: blur( 1rem );
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,12 +23,12 @@ const ModalContent = styled.div`
   padding: 20px;
   position: relative;
   color: #000;
-background: rgba( 0, 0, 0, 0.55 );
-box-shadow: 0 8px 50px rgba( 70, 70, 70, 0.5 );
-backdrop-filter: blur( 7.5px );
--webkit-backdrop-filter: blur( 7.5px );
+background: rgba( 0, 0, 0, 0.7   );
+box-shadow: 1rem 1.2rem 1.5rem rgba( 0, 0, 0, 0.5 );
+backdrop-filter: blur( 1.2rem );
+-webkit-backdrop-filter: blur( 1.2rem );
 border-radius: 10px;
-/* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+border: 1px solid rgba( 255, 255, 255, 0.2 );
 `;
 
 const CloseButton = styled.button`
@@ -47,34 +45,34 @@ const CloseButton = styled.button`
 const LeftWrap = styled.div`
 position:absolute;
 top:10%;
-left:4%;
+left:3.2%;
   display:flex;
   width:26%;
   height:89%;
   flex-direction:column;
-
+margin-top:-1%;
   .title {
     padding-left:0.4rem;
     font-size:4rem;
     font-weight:bold;
-    line-height:1.2;
+    line-height:1.3;
     color:#fff;
     margin-bottom:2rem;
   }
   .desc {
     width:100%;
-    background:#b1b1b173;
-    color:#2b2b2b;
+    background:#3d3d3d73;
+    color:#dddddd;
     padding:1.2rem 1.2rem;
     font-size:1rem;
-    line-height:1.4;
+    line-height:1.45;
     border-radius:1.4rem;
     margin-bottom:1rem;
   }
   .textWrap{
     width:100%;
-    background:#b1b1b173;
-    color:#2b2b2b;
+    background:#3d3d3d73;
+    color:#dddddd;
     padding:1.2rem 1.2rem;
     border-radius:1.4rem;
     line-height:1.4rem;
@@ -109,34 +107,36 @@ top: 52%;
 right:0;
 transform:translate(0, -50%);
 border-radius: 1rem 0 0 1rem;
-padding: 3rem 3.5rem;   
-gap:2.4rem;
+padding: 3.2rem 3.5rem;   
+gap:2rem;
 background: rgba( 255, 255, 255, 0.2 );
-box-shadow: 0 8px 40px 0 rgba( 31, 38, 38, 0.25 );
-backdrop-filter: blur( 7.5px );
--webkit-backdrop-filter: blur( 7.5px );
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+box-shadow: inset 8px 0px 28px 0 rgba( 0, 0, 0, 0.7 );
+backdrop-filter: blur( 6px );
+-webkit-backdrop-filter: blur( 6px );
 .subTitle {
   font-size:1.4rem;
-  margin-left:0.4rem;
+  margin-left:0.2rem;
   color:#fff;
 }
 .imageWrap{
   display:flex;
   justify-content: space-between;
   gap:2rem;
-  /* border:1px solid #f0f; */
+  & > img {
+    box-shadow: 4px 4px 1.5rem rgba(0,0,0,0.6);
+    &:hover {
+      scale:1.6;
+    }
+  }
   .thumb1{
     width:700px;
     height:350px;
     border-radius: 1rem;
-    box-shadow: 2px 3px 1rem rgba(0,0,0,0.3);
   }
   .thumb2{
     width:200px;
     height:350px;
     border-radius:1rem;
-    box-shadow: 2px 3px 1rem rgba(0,0,0,0.3);
   }
 }
 .btnWrap {
@@ -153,10 +153,10 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
     border-radius:2rem;
     cursor: pointer;
     box-shadow: 2px 3px 0.5rem rgba(0,0,0,0.4),inset 0 0 0.5rem rgba(255,255,255,0);
-    transition:all 0.5s;
+    transition:all 0.3s;
     &:hover{
+      background:#0059ff;
       box-shadow: 0px 0px 0.5rem rgba(0,0,0,0),inset 0 0 0.5rem rgba(0,0,0,0.4);
-
     }
   }
 }

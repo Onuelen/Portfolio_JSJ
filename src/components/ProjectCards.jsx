@@ -24,14 +24,14 @@ const CardContainer = styled.div`
       background:#ffffffa2;
       border-radius:50%;
       opacity: 0;
-      transition: all 0.5s;
+      transition: all 0.8s;
       }
       &:hover::after {
         display: inline-block;
         width:120%;
         height:280%;
         background: #ffffff11;
-        animation: circlepop 0.7s ease-in forwards;
+        animation: circlepop 0.8s ease-in-out forwards;
       }
 @keyframes circlepop {
     0% {
