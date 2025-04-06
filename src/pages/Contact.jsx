@@ -1,16 +1,128 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useState } from "react";
+import styled from "styled-components";
 
 const Container = styled.div`
-  height:100vh
-`
+  height: 100vh;
+  width: 100%;
+  padding:8.75rem 10rem;
+  border:1px solid #f00;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap:8rem;
+`;
+
+const Title = styled.div`
+  font-size: 4rem;
+  font-weight:bold;
+`;
+
+const FormWrapper = styled.form`
+display: flex;
+flex-direction: column;
+align-items: center;
+  width:60%;
+  background: rgba(255, 255, 255, 0.1);
+  margin:0 auto;
+  padding: 2rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  gap: 1rem;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  padding: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.4rem;
+`;
+
+const SubmitButton = styled.input`
+  width: 100%;
+  padding: 10px;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  &:hover {
+    background-color: #ff7b00;
+  }
+`;
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    text: "",
+    email: "",
+  });
+
+  const googleWebAppUrl = "https://script.google.com/macros/s/AKfycbzL3e4MO0YAKjiz1efGTboqH7yf6mroYM_eMs7Yj3qZPUFmgn5vQSbLDKm1xHd9qy4xpg/exec";
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(googleWebAppUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      if (response.ok) {
+        alert("전송완료!");
+        setFormData({ name: "", email: "" });
+      } else {
+        alert("전송에 실패했습니다.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("오류가 발생했습니다.");
+    }
+  };
+
+  
+
   return (
     <Container>
-
+      <Title>Contact</Title>
+      <FormWrapper onSubmit={handleSubmit}>
+        <Input
+          name="name"
+          type="text"
+          placeholder="기업명"
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
+        <Input
+          name="text"
+          type="text"
+          placeholder="내용을 입력해주세요."
+          value={formData.text}
+          onChange={handleChange}
+          required
+        />
+        <Input
+          name="email"
+          type="email"
+          placeholder="회신 받으실 이메일 주소를 입력해주세요."
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+        <SubmitButton type="submit" value="전송" />
+      </FormWrapper>
     </Container>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

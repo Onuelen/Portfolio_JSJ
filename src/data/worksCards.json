@@ -4,7 +4,7 @@
     "title": "UIUX Project",
     "subTitle": "UIUX, HTML",
     "thumb": "/workCardImage/1.jpg",
-    "desc": "어쩌고 저쩌고",
+    "desc": "어쩌고 저쩌고 이것은 메뉴 버튼을 만들어 본 것 입니다. 만약 사용자가 어쩌고 한다면",
     "git": "https://github.com/example",
     "goto": "https://example.com",
     "category": "HTML"

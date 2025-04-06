@@ -65,7 +65,7 @@ const SliderContainer = styled(Slider)`
   }
 
   .slick-dots {
-    bottom: -50px;
+    bottom:-100px;
 
     li {
       margin: 0 5px;

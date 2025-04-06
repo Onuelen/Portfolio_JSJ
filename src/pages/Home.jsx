@@ -11,6 +11,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  border:1px solid #f00;
 `
 const GlassBoard = styled.div`
   position:absolute;

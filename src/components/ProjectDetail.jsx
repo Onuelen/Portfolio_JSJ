@@ -124,9 +124,6 @@ backdrop-filter: blur( 6px );
   gap:2rem;
   & > img {
     box-shadow: 4px 4px 1.5rem rgba(0,0,0,0.6);
-    &:hover {
-      scale:1.6;
-    }
   }
   .thumb1{
     width:700px;

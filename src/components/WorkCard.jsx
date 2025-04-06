@@ -91,7 +91,10 @@ const Titles = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 12px;
+  margin-bottom:20px;
   gap: 8px;
+  border:1px solid #f00;
+  width:480px;
 `;
 
 const Title = styled.h3`
@@ -102,6 +105,7 @@ const Title = styled.h3`
 const SubTitle = styled.p`
   color: #fff;
   font-size: 16px;
+  line-height:1.4;
 `;
 
 const WorkCard = ({ data }) => {
@@ -123,6 +127,7 @@ const WorkCard = ({ data }) => {
       <Titles>
         <Title>{data.title}</Title>
         <SubTitle>{data.subTitle}</SubTitle>
+        <SubTitle>{data.desc}</SubTitle>
       </Titles>
     </Container>
   );

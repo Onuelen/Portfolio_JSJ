@@ -65,7 +65,7 @@ const HomeBackground = () => {
         HTML
       </AnimatedDiv>
       <AnimatedDiv
-        style={{ top: '0vh', left: '58vw' }}
+        style={{ top: '6vh', left: '58vw' }}
         bgColor="#526297"
         color="white"
         fontSize="50px"

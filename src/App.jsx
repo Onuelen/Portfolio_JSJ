@@ -12,6 +12,7 @@ import Works from './pages/Works';
 import Project from './pages/Project';
 import BgImage from '/img/bg.png';
 import Contact from './pages/Contact';
+import Footer from './pages/Footer';
 
 
 
@@ -51,9 +52,9 @@ const GlobalStyle = createGlobalStyle`
 
 
 const Container = styled.div`
+width:100%;
 margin-top: 60px;
 `
-
 
 const App = () => {
   return (
@@ -68,6 +69,7 @@ const App = () => {
         <Works />
         <Project />
         <Contact />
+        <Footer />
       </Container>
     </>
   )
