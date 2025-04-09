@@ -27,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     font-size: 16px; 
+    scroll-behavior: smooth;
   }
 
   ul, li {

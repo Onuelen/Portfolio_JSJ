@@ -2,32 +2,51 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  height: 100vh;
+  height: auto;
   width: 100%;
-  padding:8.75rem 10rem;
-  border:1px solid #f00;
+  padding: 8vh 10vw;
   color: white;
   display: flex;
   flex-direction: column;
-  gap:8rem;
+  gap: 8vh;
+  border:1px solid #f00;
+
+  @media (min-width: 1920px) {
+    padding: 10vh 12vw;
+  }
+
+  @media (max-width: 768px) {
+    padding: 6vh 6vw;
+    gap: 6vh;
+  }
 `;
 
 const Title = styled.div`
-  font-size: 4rem;
-  font-weight:bold;
+  font-size: 4vw;
+  font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 7vw;
+  }
 `;
 
 const FormWrapper = styled.form`
-display: flex;
-flex-direction: column;
-align-items: center;
-  width:60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
   background: rgba(255, 255, 255, 0.1);
-  margin:0 auto;
+  margin: 0 auto;
   padding: 2rem;
   border-radius: 10px;
   font-size: 1rem;
-  gap: 1rem;
+  gap: 1.5rem;
+  margin-bottom:10vh;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    padding: 1.5rem;
+  }
 `;
 
 const Input = styled.input`
@@ -35,17 +54,19 @@ const Input = styled.input`
   padding: 1.2rem;
   border: none;
   border-radius: 5px;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 `;
 
 const SubmitButton = styled.input`
   width: 100%;
-  padding: 10px;
+  padding: 0.8rem;
   background-color: #ffcc00;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1.2rem;
+  transition: background-color 0.3s;
+
   &:hover {
     background-color: #ff7b00;
   }
@@ -79,7 +100,7 @@ const Contact = () => {
 
       if (response.ok) {
         alert("전송완료!");
-        setFormData({ name: "", email: "" });
+        setFormData({ name: "", text: "", email: "" });
       } else {
         alert("전송에 실패했습니다.");
       }
@@ -89,10 +110,8 @@ const Contact = () => {
     }
   };
 
-  
-
   return (
-    <Container>
+    <Container id="contact">
       <Title>Contact</Title>
       <FormWrapper onSubmit={handleSubmit}>
         <Input
