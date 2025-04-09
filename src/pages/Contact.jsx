@@ -12,7 +12,7 @@ const Container = styled.div`
   border:1px solid #f00;
 
   @media (min-width: 1920px) {
-    padding: 10vh 12vw;
+    padding: 10vh 8vw;
   }
 
   @media (max-width: 768px) {
@@ -22,8 +22,9 @@ const Container = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 4vw;
+  font-size: 3vw;
   font-weight: bold;
+  border: 1px solid #f00;
 
   @media (max-width: 768px) {
     font-size: 7vw;
@@ -112,7 +113,7 @@ const Contact = () => {
 
   return (
     <Container id="contact">
-      <Title>Contact</Title>
+      <Title>CONTACT</Title>
       <FormWrapper onSubmit={handleSubmit}>
         <Input
           name="name"

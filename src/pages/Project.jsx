@@ -8,10 +8,15 @@ const Container = styled.div`
   width:100%;
   padding: 140px 160px;
   color: #fff;
+  border:1px solid #f00;
+
+    @media (min-width: 1920px) {
+    padding: 10vh 8vw;
+  }
 `;
 
 const Title = styled.h1`
-  font-size: 48px;
+  font-size: 3vw;
   font-weight: bold;
   margin-bottom: 40px;
 `;
@@ -22,6 +27,11 @@ grid-template-columns: repeat(2,1fr);
 gap:30px 50px;
 justify-items: center; 
 align-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 3vh;
+  }
 `;
 
 const Project = () => {

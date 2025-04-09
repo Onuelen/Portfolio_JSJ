@@ -90,19 +90,19 @@ const Header = () => {
         <MenuContainer>
           <Title>Portfoilo</Title>
           <Menu>
-            <Link to="home" smooth={true} duration={600} offset={-NAV_HEIGHT}>
+            <Link to="home" smooth={true} duration={0} offset={-NAV_HEIGHT}>
               <p>HOME</p>
             </Link>
-            <Link to="about" smooth={true} duration={500} >
+            <Link to="about" smooth={true} duration={0} >
               <p>ABOUT</p>
             </Link>
-            <Link to="workspace" smooth={true} duration={500} offset={-NAV_HEIGHT}>
+            <Link to="workspace" smooth={true} duration={0} offset={-NAV_HEIGHT}>
               <p>WORKSPACE</p>
             </Link>
-            <Link to="project" smooth={true} duration={500} offset={NAV_HEIGHT / 2} >
+            <Link to="project" smooth={true} duration={0} offset={-NAV_HEIGHT} >
               <p>PROJECT</p>
             </Link>
-            <Link to="contact" smooth={true} duration={500} offset={-NAV_HEIGHT}>
+            <Link to="contact" smooth={true} duration={0} offset={-NAV_HEIGHT}>
               <p>CONTACT</p>
             </Link>
           </Menu>
